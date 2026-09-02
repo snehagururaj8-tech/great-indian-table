@@ -47,8 +47,8 @@ header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:
 .cards{position:absolute;left:4.5vw;right:4.5vw;bottom:3.5%;display:flex;gap:8px;z-index:6}
 .mini{width:78px;height:52px;background:#fff;border:1px solid var(--line);overflow:hidden;position:relative;cursor:pointer;border-radius:4px}
 .mini img{width:100%;height:100%;object-fit:cover}.mini span{position:absolute;left:4px;bottom:3px;background:rgba(24,35,49,.84);color:white;font-size:6px;padding:3px 4px;letter-spacing:.4px}
-.popup{position:absolute;z-index:12;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,55vw);background:var(--white);border:1px solid #cdbfa9;border-radius:18px;box-shadow:0 25px 70px rgba(40,30,20,.24);overflow:hidden;display:none}
-.popup.show{display:grid;grid-template-columns:44% 56%}.popupImg{width:100%;height:100%;min-height:310px;object-fit:cover}.popupBody{padding:23px 24px}.close{position:absolute;right:11px;top:10px;border:0;background:var(--ink);color:white;width:27px;height:27px;border-radius:50%;z-index:2}
+.popup{position:absolute;z-index:50;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,55vw);background:var(--white);border:1px solid #cdbfa9;border-radius:18px;box-shadow:0 25px 70px rgba(40,30,20,.24);overflow:hidden;display:none}
+.popup.show{display:grid;grid-template-columns:44% 56%;visibility:visible;opacity:1}.popupImg{width:100%;height:100%;min-height:310px;object-fit:cover}.popupBody{padding:23px 24px}.close{position:absolute;right:11px;top:10px;border:0;background:var(--ink);color:white;width:27px;height:27px;border-radius:50%;z-index:2}
 .location{font-size:9px;letter-spacing:1.5px;color:var(--purple);font-weight:900}.popup h2{font:42px Georgia;margin:8px 0 2px}.role{font-size:10px;color:var(--orange);letter-spacing:1.2px;font-weight:800}.popup p{font:700 12px/1.5 Georgia;color:#4d4a43}.fav{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}.fav label{font-size:8px;letter-spacing:1.4px;color:var(--muted);font-weight:900}.fav strong{display:block;font:18px Georgia;margin:4px 0}.fav small{font:700 11px Georgia;color:var(--muted)}.view{border:0;background:var(--ink);color:white;padding:11px 14px;margin-top:14px;font-size:8px;letter-spacing:1.5px;border-radius:2px}
 .full{position:fixed;inset:0;background:rgba(24,35,49,.55);z-index:30;display:none;overflow:auto;padding:4vh 4vw}.full.show{display:block}.fullBox{max-width:1100px;margin:auto;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}.fullTop{padding:15px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font-weight:900;letter-spacing:.5px}.fullTop button{border:0;background:none;font-size:22px}.fullGrid{display:grid;grid-template-columns:1.1fr .9fr}.fullGrid img{width:100%;height:520px;object-fit:cover}.fullText{padding:45px}.fullText h2{font:65px Georgia;margin:10px 0}.fullText p{font:700 19px/1.55 Georgia;color:#4d4a43}.objects{padding:30px;border-top:1px solid var(--line)}.objects h3{font:700 35px Georgia;margin:0 0 18px}.objectGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.object{background:var(--white);border:1px solid var(--line);padding:5px}.object img{width:100%;height:95px;object-fit:cover}.object div{font-size:8px;padding:7px 3px}
 @media(max-width:900px){
@@ -217,13 +217,41 @@ function showStorySection(i, scrollToIt=true){
  if(scrollToIt) setTimeout(()=>section.scrollIntoView({behavior:"smooth",block:"start"}),80);
 }
 
-function openCity(city){const i=byCity(city);if(i<0)return;const t=T[i];showStorySection(i,true);document.getElementById("popup").innerHTML=`<button class="close" onclick="closePopup()">×</button><img class="popupImg" src="${t[7]}" alt="${t[0]}'s workspace"><div class="popupBody"><div class="location">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>THE OBJECT THAT MATTERS</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div><button class="view" onclick="openFull(${i})">VIEW FULL STORY →</button></div>`;document.getElementById("popup").classList.add("show")}
+function openCity(city){
+ const i=byCity(city); if(i<0)return;
+ const t=T[i];
+ const pop=document.getElementById("popup");
+ pop.innerHTML=`<button class="close" onclick="closePopup()">×</button><img class="popupImg" src="${t[7]}" alt="${t[0]}'s workspace"><div class="popupBody"><div class="location">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>THE OBJECT THAT MATTERS</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div><button class="view" onclick="openFull(${i})">VIEW FULL STORY →</button></div>`;
+ pop.classList.add("show");
+ pop.style.display="grid";
+ setTimeout(()=>{
+   try{showStorySection(i,true);}catch(e){console.log("Story section:",e);}
+ },120);
+}
 function closePopup(){document.getElementById("popup").classList.remove("show")}
 function openFull(i){const t=T[i];document.getElementById("fullBox").innerHTML=`<div class="fullTop"><b>THE GREAT INDIAN TABLE</b><button onclick="closeFull()">×</button></div><div class="fullGrid"><img src="${t[7]}" alt="${t[0]}'s workspace"><div class="fullText"><div class="eyebrow">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>FAVOURITE ON THE TABLE</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div></div></div><section class="objects"><h3>What's on this table?</h3><div class="objectGrid">${t[9].map(o=>`<div class="object"><img src="${t[7]}" alt=""><div>${o}</div></div>`).join("")}</div></section>`;document.getElementById("full").classList.add("show")}
 function closeFull(){document.getElementById("full").classList.remove("show")}
 </script>
 
 
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const hits=document.querySelector(".mapHits");
+  if(!hits) return;
+  function activate(e){
+    const target=e.target.closest(".mapHit");
+    if(!target) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const city=target.getAttribute("aria-label").replace(/^Explore\s+/,"");
+    openCity(city);
+  }
+  hits.addEventListener("click",activate,false);
+  hits.addEventListener("touchend",activate,{passive:false});
+});
+</script>
 
 </body>
 </html>
