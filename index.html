@@ -38,7 +38,7 @@ header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:
  position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;
 }
 
-.pin{position:absolute;width:34px;height:34px;transform:translate(-50%,-50%);border-radius:50%;cursor:pointer;z-index:8;background:transparent}
+.pin{position:absolute;width:34px;height:34px;pointer-events:none;transform:translate(-50%,-50%);border-radius:50%;cursor:pointer;z-index:8;background:transparent}
 .pin:after{content:attr(data-city);position:absolute;left:22px;top:-3px;width:max-content;white-space:nowrap;font-size:7px;letter-spacing:.5px;background:rgba(255,253,247,.94);padding:3px 5px;border-radius:4px;color:var(--ink);opacity:0;transition:.15s;pointer-events:none}
 .pin:hover:after{opacity:1}.mapNote{position:absolute;right:4%;top:8%;font:italic 13px/1.15 Georgia;color:var(--muted);text-align:center;transform:rotate(3deg)}
 .pin[data-city="Kashmir"]{left:28.255%;top:9.896%}.pin[data-city="Jaipur"]{left:24.870%;top:32.031%}.pin[data-city="Lucknow"]{left:43.034%;top:35.156%}.pin[data-city="Bhopal"]{left:33.203%;top:45.052%}.pin[data-city="Kolkata"]{left:65.365%;top:48.698%}.pin[data-city="Chandipur"]{left:60.742%;top:56.055%}.pin[data-city="Mumbai"]{left:16.862%;top:57.617%}.pin[data-city="Hyderabad"]{left:32.747%;top:61.654%}.pin[data-city="Bastar"]{left:44.922%;top:53.906%}.pin[data-city="Dharwad"]{left:21.159%;top:71.419%}.pin[data-city="Bengaluru"]{left:30.990%;top:76.432%}.pin[data-city="Mysore"]{left:24.935%;top:77.995%}.pin[data-city="Chennai"]{left:41.471%;top:77.995%}.pin[data-city="Coimbatore"]{left:28.971%;top:85.026%}.pin[data-city="Kochi"]{left:23.763%;top:84.049%}
@@ -52,7 +52,7 @@ header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:
 .location{font-size:9px;letter-spacing:1.5px;color:var(--purple);font-weight:900}.popup h2{font:42px Georgia;margin:8px 0 2px}.role{font-size:10px;color:var(--orange);letter-spacing:1.2px;font-weight:800}.popup p{font:700 12px/1.5 Georgia;color:#4d4a43}.fav{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}.fav label{font-size:8px;letter-spacing:1.4px;color:var(--muted);font-weight:900}.fav strong{display:block;font:18px Georgia;margin:4px 0}.fav small{font:700 11px Georgia;color:var(--muted)}.view{border:0;background:var(--ink);color:white;padding:11px 14px;margin-top:14px;font-size:8px;letter-spacing:1.5px;border-radius:2px}
 .full{position:fixed;inset:0;background:rgba(24,35,49,.55);z-index:30;display:none;overflow:auto;padding:4vh 4vw}.full.show{display:block}.fullBox{max-width:1100px;margin:auto;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}.fullTop{padding:15px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font-weight:900;letter-spacing:.5px}.fullTop button{border:0;background:none;font-size:22px}.fullGrid{display:grid;grid-template-columns:1.1fr .9fr}.fullGrid img{width:100%;height:520px;object-fit:cover}.fullText{padding:45px}.fullText h2{font:65px Georgia;margin:10px 0}.fullText p{font:700 19px/1.55 Georgia;color:#4d4a43}.objects{padding:30px;border-top:1px solid var(--line)}.objects h3{font:700 35px Georgia;margin:0 0 18px}.objectGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.object{background:var(--white);border:1px solid var(--line);padding:5px}.object img{width:100%;height:95px;object-fit:cover}.object div{font-size:8px;padding:7px 3px}
 @media(max-width:900px){
- body{overflow-x:hidden;overflow-y:auto}.page{min-height:700px;height:auto}.hero{height:760px;min-height:638px}.nav{gap:12px}.nav a:nth-child(3),.nav a:nth-child(4){display:none}.share{padding:9px 11px}.copy{left:22px;top:3%;width:88%;}.eyebrow{font-size:8px;font-weight:900}.title{font-size:44px;letter-spacing:-2.6px;margin:9px 0 10px}.tagline{font-size:14px;font-weight:800}.intro{font-size:11px;line-height:1.35;max-width:330px;margin:8px 0 8px;font-weight:700}.storycall{padding-top:7px;font-size:8px;font-weight:900}.stats{margin-top:8px;gap:5px}.stat{min-width:78px;padding:6px 8px;border-radius:8px}.stat b{font-size:19px}.stat small{font-size:6.5px;font-weight:900}.mapPanel{top:30%;right:0;width:100%;height:68%;}.mapFrame{inset:2% 3% 1.5% 3%;padding:1% 2.5%}.mapImageWrap{width:100%;height:auto;max-height:100%;}.mapNote{display:none}.mapLegend{left:6%;bottom:4%;font-size:6px}.indiaWord{right:6%;bottom:3.5%;font-size:19px}.pin{width:50px;height:50px}.cards{display:none}.popup{left:8px;right:8px;top:auto;bottom:8px;transform:none;width:auto;display:none;border-radius:14px}.popup.show{display:grid;grid-template-columns:34% 66%;max-height:31vh}.popupImg{height:100%;min-height:145px;max-height:185px}.popupBody{padding:11px 12px}.popup h2{font-size:26px;margin:4px 0 1px}.popup p{font-size:10px;line-height:1.28;font-weight:700;margin:6px 0;max-height:58px;overflow:hidden}.fav{margin-top:6px;padding-top:6px}.fav label{font-size:7px;font-weight:900}.fav strong{font-size:14px;margin:2px 0}.fav small{font-size:9px;font-weight:700}.view{margin-top:7px;padding:8px 9px;font-size:6.5px}.close{width:25px;height:25px;font-size:16px}.fullGrid{display:block}.fullGrid img{height:330px}.fullText{padding:25px}.fullText h2{font-size:50px}.objectGrid{grid-template-columns:repeat(2,1fr)}
+ body{overflow-x:hidden;overflow-y:auto}.page{min-height:700px;height:auto}.hero{height:760px;min-height:638px}.nav{gap:12px}.nav a:nth-child(3),.nav a:nth-child(4){display:none}.share{padding:9px 11px}.copy{left:22px;top:3%;width:88%;}.eyebrow{font-size:8px;font-weight:900}.title{font-size:44px;letter-spacing:-2.6px;margin:9px 0 10px}.tagline{font-size:14px;font-weight:800}.intro{font-size:11px;line-height:1.35;max-width:330px;margin:8px 0 8px;font-weight:700}.storycall{padding-top:7px;font-size:8px;font-weight:900}.stats{margin-top:8px;gap:5px}.stat{min-width:78px;padding:6px 8px;border-radius:8px}.stat b{font-size:19px}.stat small{font-size:6.5px;font-weight:900}.mapPanel{top:30%;right:0;width:100%;height:68%;}.mapFrame{inset:2% 3% 1.5% 3%;padding:1% 2.5%}.mapImageWrap{width:100%;height:auto;max-height:100%;}.mapNote{display:none}.mapLegend{left:6%;bottom:4%;font-size:6px}.indiaWord{right:6%;bottom:3.5%;font-size:19px}.pin{width:50px;height:50px;pointer-events:none}.cards{display:none}.popup{left:8px;right:8px;top:auto;bottom:8px;transform:none;width:auto;display:none;border-radius:14px}.popup.show{display:grid;grid-template-columns:34% 66%;max-height:31vh}.popupImg{height:100%;min-height:145px;max-height:185px}.popupBody{padding:11px 12px}.popup h2{font-size:26px;margin:4px 0 1px}.popup p{font-size:10px;line-height:1.28;font-weight:700;margin:6px 0;max-height:58px;overflow:hidden}.fav{margin-top:6px;padding-top:6px}.fav label{font-size:7px;font-weight:900}.fav strong{font-size:14px;margin:2px 0}.fav small{font-size:9px;font-weight:700}.view{margin-top:7px;padding:8px 9px;font-size:6.5px}.close{width:25px;height:25px;font-size:16px}.fullGrid{display:block}.fullGrid img{height:330px}.fullText{padding:25px}.fullText h2{font-size:50px}.objectGrid{grid-template-columns:repeat(2,1fr)}
 }
 
 /* Full story section inspired by the supplied reference layout */
@@ -216,6 +216,37 @@ function closePopup(){document.getElementById("popup").classList.remove("show")}
 function openFull(i){const t=T[i];document.getElementById("fullBox").innerHTML=`<div class="fullTop"><b>THE GREAT INDIAN TABLE</b><button onclick="closeFull()">×</button></div><div class="fullGrid"><img src="${t[7]}" alt="${t[0]}'s workspace"><div class="fullText"><div class="eyebrow">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>FAVOURITE ON THE TABLE</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div></div></div><section class="objects"><h3>What's on this table?</h3><div class="objectGrid">${t[9].map(o=>`<div class="object"><img src="${t[7]}" alt=""><div>${o}</div></div>`).join("")}</div></section>`;document.getElementById("full").classList.add("show")}
 function closeFull(){document.getElementById("full").classList.remove("show")}
 </script>
+
+<script>
+(function(){
+ const mapImg = document.querySelector('.mapImageWrap img');
+ if(!mapImg) return;
+ const mapPoints = {
+  Kashmir:[434,152], Jaipur:[382,492], Lucknow:[661,540], Bhopal:[510,692],
+  Kolkata:[1004,748], Bastar:[690,828], Chandipur:[933,861], Mumbai:[259,885],
+  Hyderabad:[503,947], Dharwad:[325,1097], Mysore:[383,1198],
+  Bengaluru:[476,1174], Chennai:[637,1198], Kochi:[365,1291],
+  Coimbatore:[445,1306]
+ };
+ function handleMapTap(e){
+   const r=mapImg.getBoundingClientRect();
+   const p=e.touches ? e.touches[0] : e;
+   const x=(p.clientX-r.left)/r.width*1536;
+   const y=(p.clientY-r.top)/r.height*1536;
+   let best=null, dist=Infinity;
+   Object.entries(mapPoints).forEach(([city,pt])=>{
+     const d=Math.hypot(x-pt[0],y-pt[1]);
+     if(d<dist){dist=d;best=city;}
+   });
+   // Generous touch radius for phones.
+   if(best && dist<=95) openCity(best);
+ }
+ mapImg.style.cursor='pointer';
+ mapImg.style.touchAction='manipulation';
+ mapImg.addEventListener('click',handleMapTap);
+})();
+</script>
+
 </body>
 </html>
 <style>
