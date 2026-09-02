@@ -12,9 +12,9 @@ body{overflow-x:hidden}.nav{height:78px;border-bottom:1px solid #c9bdab;display:
 .navlinks{display:flex;gap:30px;font-size:9px;letter-spacing:1.8px}.hero{height:calc(100vh - 78px);min-height:650px;position:relative;overflow:hidden}
 .copy{position:absolute;left:8vw;top:17%;width:33%;z-index:3}.kicker,.eyebrow,.label{font-size:9px;letter-spacing:2.2px;font-weight:800;color:#a95738}
 h1{font:400 clamp(52px,6.2vw,90px)/.9 Georgia,serif;margin:18px 0}h1 i{font-style:italic}.copy p{max-width:330px;color:#716c62;font:14px/1.6 Georgia,serif}
-.stats{display:flex;gap:25px;margin-top:35px}.stat{display:flex;gap:9px;align-items:center}.stat b{font:italic 40px Georgia}.stat span{font-size:8px;letter-spacing:1.4px;line-height:1.4}.mapArea{position:absolute;right:1vw;top:3%;width:66%;height:93%;display:flex;align-items:center;justify-content:center}
-.mapTitle{position:absolute;right:13%;top:5%;font:italic 17px Georgia;color:#857866;line-height:1.1;text-align:right}
-.mapWrap{width:min(650px,84%);position:relative}.india{width:100%;height:auto;filter:drop-shadow(12px 18px 0 rgba(42,38,30,.07))}
+.stats{display:flex;gap:25px;margin-top:35px}.stat{display:flex;gap:9px;align-items:center}.stat b{font:italic 40px Georgia}.stat span{font-size:8px;letter-spacing:1.4px;line-height:1.4}.mapArea{position:absolute;right:1vw;top:2%;width:67%;height:95%;display:flex;align-items:center;justify-content:center}
+.mapTitle{position:absolute;right:10%;top:4%;font:italic 17px Georgia;color:#857866;line-height:1.1;text-align:right}
+.mapWrap{width:min(700px,88%);position:relative}.exactMap{background:#fff;border:1px solid #d4c6b1;box-shadow:12px 18px 0 rgba(42,38,30,.05);overflow:visible}.indiaImage{display:block;width:100%;height:auto}.clickPin{position:absolute;width:22px;height:22px;transform:translate(-50%,-50%);border-radius:50%;cursor:pointer;background:transparent;z-index:4}.clickPin:after{content:"";position:absolute;left:50%;top:50%;width:14px;height:14px;transform:translate(-50%,-50%);border:2px solid transparent;border-radius:50%}.clickPin:hover:after{border-color:#a95738;background:rgba(255,250,240,.25)}.india{width:100%;height:auto;filter:drop-shadow(12px 18px 0 rgba(42,38,30,.07))}
 .outline{fill:#d9c4a7;stroke:#28313a;stroke-width:.55}.line{fill:none;stroke:#b09e86;stroke-width:.28;stroke-dasharray:1.2 1.1}
 .pin{fill:#a95738;stroke:#f3ead9;stroke-width:.7;cursor:pointer}.pin.active{fill:#17202b}.halo{fill:none;stroke:#a95738;stroke-width:.3;opacity:.4}
 .mapWord{position:absolute;right:10%;bottom:8%;font:italic 27px Georgia;color:#857866}.mapCaption{position:absolute;left:8%;bottom:6%;font-size:7px;letter-spacing:2px;color:#a95738;line-height:1.7}
@@ -24,7 +24,7 @@ h1{font:400 clamp(52px,6.2vw,90px)/.9 Georgia,serif;margin:18px 0}h1 i{font-styl
 .bottom{position:absolute;left:5vw;right:5vw;bottom:16px;font-size:7px;letter-spacing:1.3px;color:#716c62;white-space:nowrap}
 .modal{display:none;position:fixed;inset:0;background:rgba(23,32,43,.38);z-index:20;padding:5vh 5vw;overflow:auto}.modal.show{display:block}.modalbox{max-width:1100px;margin:auto;background:#f3ead9;min-height:90vh;border:1px solid #c9bdab}.modalhead{padding:18px 25px;border-bottom:1px solid #c9bdab;display:flex;justify-content:space-between;align-items:center}.modalhead button{border:0;background:none;font-size:25px}.story{display:grid;grid-template-columns:1.2fr .8fr;gap:45px;padding:35px}.story img{width:100%;height:520px;object-fit:cover}.storytext h2{font:65px Georgia;margin:10px 0}.storytext h3{font-size:11px;color:#716c62;letter-spacing:1px}.big{font:20px/1.55 Georgia;margin:40px 0}.gallery{padding:0 35px 45px}.gallery h3{font:36px Georgia;border-bottom:1px solid #c9bdab;padding-bottom:15px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.grid div{font:13px Georgia}.grid img{width:100%;height:135px;object-fit:cover}
 @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-@media(max-width:850px){.nav{height:65px;padding:0 18px}.edition{display:none}.navlinks{gap:12px}.hero{height:calc(100vh - 65px);min-height:720px}.copy{left:22px;top:5%;width:85%}.copy h1{font-size:52px}.copy p{font-size:12px}.stats{margin-top:18px}.mapArea{top:235px;right:0;width:100%;height:55%}.mapWrap{width:94%}.mapTitle{font-size:11px;right:7%;top:0}.card{left:15px;right:15px;top:auto;bottom:18px;width:auto;max-height:56vh;overflow:auto}.card img{height:130px}.cardbody{padding:15px}.card h2{font-size:27px}.card p{font-size:11px}.bottom{display:none}.story{display:block;padding:20px}.story img{height:330px}.storytext h2{font-size:52px}.grid{grid-template-columns:repeat(2,1fr)}.gallery{padding:0 20px 30px}.gallery h3{font-size:28px}}
+@media(max-width:850px){.nav{height:65px;padding:0 18px}.edition{display:none}.navlinks{gap:12px}.hero{height:calc(100vh - 65px);min-height:720px}.copy{left:22px;top:5%;width:85%}.copy h1{font-size:52px}.copy p{font-size:12px}.stats{margin-top:18px}.mapArea{top:235px;right:0;width:100%;height:55%}.mapWrap{width:96%}.mapTitle{font-size:11px;right:7%;top:0}.card{left:15px;right:15px;top:auto;bottom:18px;width:auto;max-height:56vh;overflow:auto}.card img{height:130px}.cardbody{padding:15px}.card h2{font-size:27px}.card p{font-size:11px}.bottom{display:none}.story{display:block;padding:20px}.story img{height:330px}.storytext h2{font-size:52px}.grid{grid-template-columns:repeat(2,1fr)}.gallery{padding:0 20px 30px}.gallery h3{font-size:28px}}
 </style>
 </head>
 <body>
@@ -35,13 +35,29 @@ h1{font:400 clamp(52px,6.2vw,90px)/.9 Georgia,serif;margin:18px 0}h1 i{font-styl
 </header>
 <main class="hero">
 <section class="copy"><div class="kicker">WHERE INDIA WORKS</div><h1>Every table<br><i>tells a story.</i></h1><p>A visual archive of the people, places and everyday objects that make India work.</p><div class="stats"><div class="stat"><b>15</b><span>TABLES<br>ACROSS INDIA</span></div><div class="stat"><b>15</b><span>STORIES<br>FROM INDIA</span></div></div></section>
-<section class="mapArea"><div class="mapTitle">A COUNTRY<br><i>AT WORK</i></div><div class="mapWrap">
-<svg class="india" viewBox="0 0 100 100" aria-label="Interactive India map">
-<path class="outline" d="M10 54C10 49 12 44 15 41C17 38 18 34 18 30C18 26 21 22 25 20C29 17 33 14 38 10C43 7 48 6 53 7C58 8 61 10 65 12C69 14 73 16 77 19C81 21 85 22 89 24L94 28L91 32L94 35L91 39L88 40C86 43 85 47 82 50C79 54 77 58 75 63C73 68 70 72 68 77C66 82 64 87 61 93C59 96 56 91 54 88C51 84 49 80 47 76C44 71 41 68 37 65C33 62 30 59 27 56C23 54 20 53 17 55C14 57 11 57 10 54Z"/>
-<path class="line" d="M27 56C39 53 50 56 61 62C69 66 76 65 83 60M38 31C47 35 57 36 68 34C76 33 82 35 89 39M34 43C45 45 56 45 68 43C77 41 84 43 88 47"/>
-<g id="pins"></g></svg>
-<div class="mapWord">INDIA</div><div class="mapCaption">CLICK A PIN<br><i>TO MEET THE MAKER</i></div>
-</div></section>
+<section class="mapArea">
+<div class="mapTitle">A COUNTRY<br><i>AT WORK</i></div>
+<div class="mapWrap exactMap">
+  <img class="indiaImage" src="India-map.png" alt="Illustrated map of India with the 15 project locations">
+  <div class="clickPin" style="left:28.26%;top:9.90%" onclick="openCardByCity('Kashmir')" title="Kashmir"></div>
+  <div class="clickPin" style="left:24.87%;top:32.03%" onclick="openCardByCity('Jaipur')" title="Jaipur"></div>
+  <div class="clickPin" style="left:42.94%;top:35.16%" onclick="openCardByCity('Lucknow')" title="Lucknow"></div>
+  <div class="clickPin" style="left:33.24%;top:45.06%" onclick="openCardByCity('Bhopal')" title="Bhopal"></div>
+  <div class="clickPin" style="left:65.39%;top:48.68%" onclick="openCardByCity('Kolkata')" title="Kolkata"></div>
+  <div class="clickPin" style="left:44.92%;top:53.91%" onclick="openCardByCity('Bastar')" title="Bastar"></div>
+  <div class="clickPin" style="left:60.75%;top:56.02%" onclick="openCardByCity('Chandipur')" title="Chandipur"></div>
+  <div class="clickPin" style="left:16.83%;top:57.61%" onclick="openCardByCity('Mumbai')" title="Mumbai"></div>
+  <div class="clickPin" style="left:32.75%;top:61.67%" onclick="openCardByCity('Hyderabad')" title="Hyderabad"></div>
+  <div class="clickPin" style="left:21.16%;top:71.42%" onclick="openCardByCity('Dharwad')" title="Dharwad"></div>
+  <div class="clickPin" style="left:24.90%;top:78.03%" onclick="openCardByCity('Mysore')" title="Mysore"></div>
+  <div class="clickPin" style="left:31.00%;top:76.43%" onclick="openCardByCity('Bengaluru')" title="Bengaluru"></div>
+  <div class="clickPin" style="left:41.44%;top:78.01%" onclick="openCardByCity('Chennai')" title="Chennai"></div>
+  <div class="clickPin" style="left:23.73%;top:84.02%" onclick="openCardByCity('Kochi')" title="Kochi"></div>
+  <div class="clickPin" style="left:28.94%;top:85.02%" onclick="openCardByCity('Coimbatore')" title="Coimbatore"></div>
+  <div class="mapWord">INDIA</div>
+  <div class="mapCaption">CLICK A CITY<br><i>TO MEET THE MAKER</i></div>
+</div>
+</section>
 <div id="card"></div>
 <div class="bottom">✦ MYSORE · BENGALURU · COIMBATORE · DHARWAD · CHENNAI · KOLKATA · BHOPAL · HYDERABAD · LUCKNOW · MUMBAI · KOCHI · JAIPUR · KASHMIR · BASTAR</div>
 </main>
@@ -65,9 +81,9 @@ const tables=[
 ["Latha","Bastar","Chhattisgarh","Teacher","Blackboard","She believes it makes the children's future brighter.","In Bastar, Latha teaches beyond textbooks. Her blackboard becomes a window to possibility, helping children imagine a brighter future beyond the challenges around them.","Latha.png",19.1071,81.9535,["Blackboard","Textbooks","Attendance register","Lesson notebook","Red pen","Student files","Notebooks","Water bottle","Desk bell"]]
 ];
 function project(lat,lng){return{x:8+((lng-68)/30)*84,y:5+((36-lat)/31)*90}}
-const pins=document.getElementById("pins"),card=document.getElementById("card");
+const card=document.getElementById("card");
 let selected=-1;
-tables.forEach((t,i)=>{let p=project(t[9],t[10]);let g=document.createElementNS("http://www.w3.org/2000/svg","g");g.innerHTML=`<circle cx="${p.x}" cy="${p.y}" r="3.1" class="halo"/><circle cx="${p.x}" cy="${p.y}" r="1.35" class="pin"/>`;g.onclick=()=>openCard(i);pins.appendChild(g)});
+function openCardByCity(city){const i=tables.findIndex(t=>t[1].toLowerCase()===city.toLowerCase());if(i>=0)openCard(i)}
 function openCard(i){selected=i;let t=tables[i];document.querySelectorAll(".pin").forEach((x,j)=>x.classList.toggle("active",j===i));card.innerHTML=`<aside class="card"><button class="close" onclick="closeCard()">×</button><img src="${t[7]}" alt="${t[0]}'s workspace"><div class="cardbody"><div class="eyebrow">${t[1].toUpperCase()}, ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="profession">${t[3]}</div><p>${t[6]}</p><div class="fav"><span class="label">FAVOURITE ON THE TABLE</span><strong>${t[4]}</strong><small>“${t[5]}”</small></div><div class="label">WHAT'S ON THIS TABLE?</div><div class="chips">${t[11].slice(0,5).map(x=>`<span>${x}</span>`).join("")}</div><button class="storybtn" onclick="openStory()">VIEW FULL STORY →</button></div></aside>`}
 function closeCard(){card.innerHTML="";selected=-1;document.querySelectorAll(".pin").forEach(x=>x.classList.remove("active"))}
 function openStory(){let t=tables[selected];document.getElementById("modalbox").innerHTML=`<div class="modalhead"><b>THE GREAT INDIAN TABLE</b><button onclick="closeStory()">×</button></div><div class="story"><img src="${t[7]}" alt="${t[0]}'s workspace"><div class="storytext"><div class="eyebrow">${t[1].toUpperCase()}, ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><h3>${t[3]}</h3><p class="big">${t[6]}</p><div class="fav"><span class="label">THE OBJECT THAT MATTERS</span><strong>${t[4]}</strong><small>“${t[5]}”</small></div></div></div><section class="gallery"><h3>What's on this table?</h3><div class="grid">${t[11].map(x=>`<div><img src="${t[7]}" alt=""><p>${x}</p></div>`).join("")}</div></section>`;document.getElementById("modal").classList.add("show")}
