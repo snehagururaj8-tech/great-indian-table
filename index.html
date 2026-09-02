@@ -10,41 +10,83 @@
  --orange:#d96735;--green:#5b7f58;--blue:#456b8e;--purple:#766092;
  --line:#cdbfa9;--white:#fffdf7;
 }
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
-body{background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
-button{font:inherit}.page{height:100vh;min-height:650px;position:relative;overflow:hidden}
+*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%;overflow-x:hidden;overflow-y:auto}
+body{background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;font-weight:500}
+button{font:inherit}.page{min-height:100vh;position:relative;overflow:visible}
 .page:before{content:"";position:absolute;inset:0;opacity:.18;pointer-events:none;background-image:radial-gradient(#8f806b .55px,transparent .55px);background-size:8px 8px}
 header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 4.5vw;position:relative;z-index:10}
 .logo{font-weight:900;letter-spacing:1.7px;font-size:12px;line-height:.95}.logo em{display:block;font:italic 10px Georgia;color:var(--orange);letter-spacing:1px;margin-bottom:4px}
 .logo span{color:var(--orange)}.nav{margin-left:auto;display:flex;align-items:center;gap:28px;font-size:9px;letter-spacing:1.7px}
-.nav a{color:var(--ink);text-decoration:none}.share{border:0;background:var(--ink);color:white;border-radius:20px;padding:10px 15px;font-size:8px;letter-spacing:1.5px}
-.hero{height:calc(100vh - 72px);position:relative}.copy{position:absolute;left:5vw;top:7%;width:37%;z-index:4}
-.eyebrow{font-size:8px;letter-spacing:2.2px;color:var(--orange);font-weight:800}.title{font:900 clamp(50px,6vw,82px)/.78 Arial,sans-serif;letter-spacing:-4px;margin:14px 0 17px;text-transform:uppercase}
+.nav a{color:var(--ink);text-decoration:none;font-weight:700}.share{border:0;background:var(--ink);color:white;border-radius:20px;padding:10px 15px;font-size:8px;letter-spacing:1.5px}
+.hero{min-height:calc(100vh - 72px);height:760px;position:relative}.copy{position:absolute;left:5vw;top:7%;width:37%;z-index:4}
+.eyebrow{font-size:9px;letter-spacing:2.2px;color:var(--orange);font-weight:900}.title{font:900 clamp(50px,6vw,82px)/.78 Arial,sans-serif;letter-spacing:-4px;margin:14px 0 17px;text-transform:uppercase}
 .title .great{color:var(--ink)}.title .indian{color:var(--orange)}.title .table{color:var(--green)}
-.tagline{font:italic 18px/1.15 Georgia;color:#4c514c;max-width:430px}.tagline b{color:var(--blue)}
-.intro{font:12px/1.55 Georgia;color:var(--muted);max-width:360px;margin:15px 0 17px}
-.storycall{border-top:1px solid var(--line);padding-top:13px;font-size:9px;letter-spacing:1.4px}.storycall strong{color:var(--orange)}
+.tagline{font:bold italic 18px/1.15 Georgia;color:#4c514c;max-width:430px}.tagline b{color:var(--blue)}
+.intro{font:700 12px/1.55 Georgia;color:var(--muted);max-width:360px;margin:15px 0 17px}
+.storycall{border-top:1px solid var(--line);padding-top:13px;font-size:10px;letter-spacing:1.4px;font-weight:900}.storycall strong{color:var(--orange)}
 .stats{display:flex;gap:8px;margin-top:24px;position:relative;z-index:9}.stat{background:rgba(255,253,247,.72);border:1px solid var(--line);border-radius:10px;min-width:105px;padding:10px 12px;display:flex;gap:9px;align-items:center}
-.stat b{font:italic 25px Georgia}.stat small{font-size:7px;letter-spacing:1px;color:var(--muted);line-height:1.25}
+.stat b{font:bold italic 25px Georgia}.stat small{font-size:8px;letter-spacing:1px;color:var(--muted);line-height:1.25;font-weight:900}
 .mapPanel{position:absolute;right:1.5vw;top:1%;width:60%;height:98%;z-index:2}.mapPanel:after{content:"";position:absolute;right:2%;bottom:6%;width:110px;height:50px;border-bottom:2px dashed #b6a58d;border-radius:50%;transform:rotate(-8deg);opacity:.6}
 .mapFrame{position:absolute;inset:6% 3% 2% 4%;background:rgba(255,253,247,.55);border:1px solid #d6c9b6;border-radius:18px;padding:3% 4%;box-shadow:10px 12px 0 rgba(62,51,37,.04)}
 .mapFrame img{width:100%;height:100%;object-fit:contain;display:block;filter:saturate(.92)}
 .pin{position:absolute;width:34px;height:34px;transform:translate(-50%,-50%);border-radius:50%;cursor:pointer;z-index:8;background:transparent}
 .pin:after{content:attr(data-city);position:absolute;left:22px;top:-3px;width:max-content;white-space:nowrap;font-size:7px;letter-spacing:.5px;background:rgba(255,253,247,.94);padding:3px 5px;border-radius:4px;color:var(--ink);opacity:0;transition:.15s;pointer-events:none}
 .pin:hover:after{opacity:1}.mapNote{position:absolute;right:4%;top:8%;font:italic 13px/1.15 Georgia;color:var(--muted);text-align:center;transform:rotate(3deg)}
-.pin[data-city="Kashmir"]{left:28%;top:14%}.pin[data-city="Jaipur"]{left:31%;top:34%}.pin[data-city="Lucknow"]{left:45%;top:35%}.pin[data-city="Bhopal"]{left:38%;top:47%}.pin[data-city="Kolkata"]{left:67%;top:49%}.pin[data-city="Chandipur"]{left:63%;top:57%}.pin[data-city="Mumbai"]{left:27%;top:57%}.pin[data-city="Hyderabad"]{left:40%;top:60%}.pin[data-city="Bastar"]{left:51%;top:57%}.pin[data-city="Dharwad"]{left:31%;top:70%}.pin[data-city="Bengaluru"]{left:39%;top:77%}.pin[data-city="Mysore"]{left:33%;top:80%}.pin[data-city="Chennai"]{left:49%;top:80%}.pin[data-city="Coimbatore"]{left:40%;top:87%}.pin[data-city="Kochi"]{left:35%;top:89%}
-.mapLegend{position:absolute;left:6%;bottom:7%;font-size:7px;letter-spacing:1.7px;color:var(--orange)}.indiaWord{position:absolute;right:6%;bottom:7%;font:italic 24px Georgia;color:#827665}
+.pin[data-city="Kashmir"]{left:28.255%;top:9.896%}.pin[data-city="Jaipur"]{left:24.870%;top:32.031%}.pin[data-city="Lucknow"]{left:43.034%;top:35.156%}.pin[data-city="Bhopal"]{left:33.203%;top:45.052%}.pin[data-city="Kolkata"]{left:65.365%;top:48.698%}.pin[data-city="Chandipur"]{left:60.742%;top:56.055%}.pin[data-city="Mumbai"]{left:16.862%;top:57.617%}.pin[data-city="Hyderabad"]{left:32.747%;top:61.654%}.pin[data-city="Bastar"]{left:44.922%;top:53.906%}.pin[data-city="Dharwad"]{left:21.159%;top:71.419%}.pin[data-city="Bengaluru"]{left:30.990%;top:76.432%}.pin[data-city="Mysore"]{left:24.935%;top:77.995%}.pin[data-city="Chennai"]{left:41.471%;top:77.995%}.pin[data-city="Coimbatore"]{left:28.971%;top:85.026%}.pin[data-city="Kochi"]{left:23.763%;top:84.049%}
+.mapLegend{position:absolute;left:6%;bottom:7%;font-size:8px;letter-spacing:1.7px;color:var(--orange);font-weight:900}.indiaWord{position:absolute;right:6%;bottom:7%;font:bold italic 24px Georgia;color:#827665}
 .doodle{position:absolute;font:28px Georgia;color:#a95738;opacity:.55}.d1{left:2%;top:2%}.d2{left:46%;top:6%}.d3{right:2%;bottom:13%}
 .cards{position:absolute;left:4.5vw;right:4.5vw;bottom:3.5%;display:flex;gap:8px;z-index:6}
 .mini{width:78px;height:52px;background:#fff;border:1px solid var(--line);overflow:hidden;position:relative;cursor:pointer;border-radius:4px}
 .mini img{width:100%;height:100%;object-fit:cover}.mini span{position:absolute;left:4px;bottom:3px;background:rgba(24,35,49,.84);color:white;font-size:6px;padding:3px 4px;letter-spacing:.4px}
 .popup{position:absolute;z-index:12;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,55vw);background:var(--white);border:1px solid #cdbfa9;border-radius:18px;box-shadow:0 25px 70px rgba(40,30,20,.24);overflow:hidden;display:none}
 .popup.show{display:grid;grid-template-columns:44% 56%}.popupImg{width:100%;height:100%;min-height:310px;object-fit:cover}.popupBody{padding:23px 24px}.close{position:absolute;right:11px;top:10px;border:0;background:var(--ink);color:white;width:27px;height:27px;border-radius:50%;z-index:2}
-.location{font-size:8px;letter-spacing:1.5px;color:var(--purple);font-weight:800}.popup h2{font:42px Georgia;margin:8px 0 2px}.role{font-size:9px;color:var(--orange);letter-spacing:1.2px}.popup p{font:12px/1.5 Georgia;color:#4d4a43}.fav{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}.fav label{font-size:7px;letter-spacing:1.4px;color:var(--muted)}.fav strong{display:block;font:18px Georgia;margin:4px 0}.fav small{font:11px Georgia;color:var(--muted)}.view{border:0;background:var(--ink);color:white;padding:11px 14px;margin-top:14px;font-size:8px;letter-spacing:1.5px;border-radius:2px}
-.full{position:fixed;inset:0;background:rgba(24,35,49,.55);z-index:30;display:none;overflow:auto;padding:4vh 4vw}.full.show{display:block}.fullBox{max-width:1100px;margin:auto;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}.fullTop{padding:15px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.fullTop button{border:0;background:none;font-size:22px}.fullGrid{display:grid;grid-template-columns:1.1fr .9fr}.fullGrid img{width:100%;height:520px;object-fit:cover}.fullText{padding:45px}.fullText h2{font:65px Georgia;margin:10px 0}.fullText p{font:19px/1.55 Georgia;color:#4d4a43}.objects{padding:30px;border-top:1px solid var(--line)}.objects h3{font:35px Georgia;margin:0 0 18px}.objectGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.object{background:var(--white);border:1px solid var(--line);padding:5px}.object img{width:100%;height:95px;object-fit:cover}.object div{font-size:8px;padding:7px 3px}
+.location{font-size:9px;letter-spacing:1.5px;color:var(--purple);font-weight:900}.popup h2{font:42px Georgia;margin:8px 0 2px}.role{font-size:10px;color:var(--orange);letter-spacing:1.2px;font-weight:800}.popup p{font:700 12px/1.5 Georgia;color:#4d4a43}.fav{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}.fav label{font-size:8px;letter-spacing:1.4px;color:var(--muted);font-weight:900}.fav strong{display:block;font:18px Georgia;margin:4px 0}.fav small{font:700 11px Georgia;color:var(--muted)}.view{border:0;background:var(--ink);color:white;padding:11px 14px;margin-top:14px;font-size:8px;letter-spacing:1.5px;border-radius:2px}
+.full{position:fixed;inset:0;background:rgba(24,35,49,.55);z-index:30;display:none;overflow:auto;padding:4vh 4vw}.full.show{display:block}.fullBox{max-width:1100px;margin:auto;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}.fullTop{padding:15px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font-weight:900;letter-spacing:.5px}.fullTop button{border:0;background:none;font-size:22px}.fullGrid{display:grid;grid-template-columns:1.1fr .9fr}.fullGrid img{width:100%;height:520px;object-fit:cover}.fullText{padding:45px}.fullText h2{font:65px Georgia;margin:10px 0}.fullText p{font:700 19px/1.55 Georgia;color:#4d4a43}.objects{padding:30px;border-top:1px solid var(--line)}.objects h3{font:700 35px Georgia;margin:0 0 18px}.objectGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.object{background:var(--white);border:1px solid var(--line);padding:5px}.object img{width:100%;height:95px;object-fit:cover}.object div{font-size:8px;padding:7px 3px}
 @media(max-width:900px){
- body{overflow:hidden}.page{height:100vh;min-height:700px}.hero{height:calc(100vh - 62px);min-height:638px}.nav{gap:12px}.nav a:nth-child(3),.nav a:nth-child(4){display:none}.share{padding:9px 11px}.copy{left:22px;top:3%;width:88%;}.eyebrow{font-size:7px}.title{font-size:44px;letter-spacing:-2.6px;margin:9px 0 10px}.tagline{font-size:14px}.intro{font-size:10px;line-height:1.35;max-width:330px;margin:8px 0 8px}.storycall{padding-top:7px;font-size:7px}.stats{margin-top:8px;gap:5px}.stat{min-width:78px;padding:6px 8px;border-radius:8px}.stat b{font-size:19px}.stat small{font-size:5.3px}.mapPanel{top:35%;right:0;width:100%;height:62%;}.mapFrame{inset:2% 3% 1.5% 3%;padding:1% 2.5%}.mapNote{display:none}.mapLegend{left:6%;bottom:4%;font-size:6px}.indiaWord{right:6%;bottom:3.5%;font-size:19px}.pin{width:42px;height:42px}.cards{display:none}.popup{left:8px;right:8px;top:auto;bottom:8px;transform:none;width:auto;display:none;border-radius:14px}.popup.show{display:grid;grid-template-columns:34% 66%;max-height:31vh}.popupImg{height:100%;min-height:145px;max-height:185px}.popupBody{padding:11px 12px}.popup h2{font-size:26px;margin:4px 0 1px}.popup p{font-size:9.5px;line-height:1.28;margin:6px 0;max-height:58px;overflow:hidden}.fav{margin-top:6px;padding-top:6px}.fav label{font-size:6px}.fav strong{font-size:14px;margin:2px 0}.fav small{font-size:8.5px}.view{margin-top:7px;padding:8px 9px;font-size:6.5px}.close{width:25px;height:25px;font-size:16px}.fullGrid{display:block}.fullGrid img{height:330px}.fullText{padding:25px}.fullText h2{font-size:50px}.objectGrid{grid-template-columns:repeat(2,1fr)}
+ body{overflow-x:hidden;overflow-y:auto}.page{min-height:700px;height:auto}.hero{height:760px;min-height:638px}.nav{gap:12px}.nav a:nth-child(3),.nav a:nth-child(4){display:none}.share{padding:9px 11px}.copy{left:22px;top:3%;width:88%;}.eyebrow{font-size:8px;font-weight:900}.title{font-size:44px;letter-spacing:-2.6px;margin:9px 0 10px}.tagline{font-size:14px;font-weight:800}.intro{font-size:11px;line-height:1.35;max-width:330px;margin:8px 0 8px;font-weight:700}.storycall{padding-top:7px;font-size:8px;font-weight:900}.stats{margin-top:8px;gap:5px}.stat{min-width:78px;padding:6px 8px;border-radius:8px}.stat b{font-size:19px}.stat small{font-size:6.5px;font-weight:900}.mapPanel{top:30%;right:0;width:100%;height:68%;}.mapFrame{inset:2% 3% 1.5% 3%;padding:1% 2.5%}.mapNote{display:none}.mapLegend{left:6%;bottom:4%;font-size:6px}.indiaWord{right:6%;bottom:3.5%;font-size:19px}.pin{width:46px;height:46px}.cards{display:none}.popup{left:8px;right:8px;top:auto;bottom:8px;transform:none;width:auto;display:none;border-radius:14px}.popup.show{display:grid;grid-template-columns:34% 66%;max-height:31vh}.popupImg{height:100%;min-height:145px;max-height:185px}.popupBody{padding:11px 12px}.popup h2{font-size:26px;margin:4px 0 1px}.popup p{font-size:10px;line-height:1.28;font-weight:700;margin:6px 0;max-height:58px;overflow:hidden}.fav{margin-top:6px;padding-top:6px}.fav label{font-size:7px;font-weight:900}.fav strong{font-size:14px;margin:2px 0}.fav small{font-size:9px;font-weight:700}.view{margin-top:7px;padding:8px 9px;font-size:6.5px}.close{width:25px;height:25px;font-size:16px}.fullGrid{display:block}.fullGrid img{height:330px}.fullText{padding:25px}.fullText h2{font-size:50px}.objectGrid{grid-template-columns:repeat(2,1fr)}
 }
+
+/* Full story section inspired by the supplied reference layout */
+.storySection{
+  position:relative;z-index:7;margin:0 4.5vw 28px;background:var(--paper2);
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  display:none;grid-template-columns:22% 46% 32%;min-height:430px;
+  box-shadow:0 8px 24px rgba(50,38,25,.07)
+}
+.storySection.show{display:grid}
+.storySide{padding:28px 25px;border-right:1px solid var(--line);position:relative}
+.storySide .back{font-size:8px;letter-spacing:1.4px;color:var(--muted);margin-bottom:24px}
+.storySide h2{font:700 34px/1 Georgia;margin:7px 0}
+.storySide .storyRole{font-size:10px;color:var(--orange);font-weight:800;letter-spacing:1px}
+.storySide .storyText{font:700 13px/1.55 Georgia;color:#4d4a43;margin-top:18px}
+.favouriteBox{border:1px solid #bca990;border-radius:7px;padding:14px;margin-top:20px}
+.favouriteBox label{font-size:7px;letter-spacing:1.2px;color:var(--muted);font-weight:900}
+.favouriteBox strong{display:block;font:700 17px Georgia;margin:6px 0 3px}
+.favouriteBox small{font:700 10px/1.35 Georgia;color:var(--muted)}
+.storyHero{min-height:430px;position:relative;background:#e7dcc7}
+.storyHero img{width:100%;height:100%;min-height:430px;object-fit:cover;display:block}
+.storyHero .caption{position:absolute;bottom:0;left:0;right:0;background:rgba(24,35,49,.84);color:#fff;padding:10px 16px;font:italic 13px Georgia;text-align:center}
+.components{padding:25px 25px;background:rgba(255,253,247,.55)}
+.components h3{font:700 27px Georgia;margin:0 0 17px}
+.componentGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px 13px}
+.componentItem{display:grid;grid-template-columns:68px 1fr;gap:9px;align-items:center}
+.componentItem img{width:68px;height:58px;border-radius:5px;object-fit:cover;border:1px solid var(--line);background:#e8ddc9}
+.componentItem strong{font-size:10px;line-height:1.15;display:block}
+.componentItem small{font:700 8px/1.25 Georgia;color:var(--muted);display:block;margin-top:3px}
+.storySection .fullStoryBtn{border:0;background:var(--ink);color:#fff;padding:10px 13px;font-size:7px;letter-spacing:1.2px;border-radius:2px;margin-top:16px}
+@media(max-width:900px){
+ .storySection{margin:10px 10px 24px;display:none;grid-template-columns:1fr;border-radius:10px}
+ .storySection.show{display:block}
+ .storySide{padding:20px;border-right:0;border-bottom:1px solid var(--line)}
+ .storySide h2{font-size:30px}
+ .storySide .storyText{font-size:12px}
+ .storyHero,.storyHero img{min-height:260px;height:260px}
+ .components{padding:20px}
+ .components h3{font-size:24px}
+ .componentItem{grid-template-columns:62px 1fr}
+ .componentItem img{width:62px;height:52px}
+}
+
 </style>
 </head>
 <body>
@@ -91,6 +133,31 @@ header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:
 <div class="popup" id="popup"></div>
 </section>
 </div>
+
+<section class="storySection" id="storySection">
+  <div class="storySide">
+    <div class="back">THE TABLE · FULL STORY</div>
+    <div class="location" id="storyLocation"></div>
+    <h2 id="storyName"></h2>
+    <div class="storyRole" id="storyRole"></div>
+    <div class="storyText" id="storyText"></div>
+    <div class="favouriteBox">
+      <label>♡ FAVOURITE ITEM</label>
+      <strong id="storyFavourite"></strong>
+      <small id="storyFavouriteReason"></small>
+    </div>
+    <button class="fullStoryBtn" id="storyTopButton">FULL STORY ↑</button>
+  </div>
+  <div class="storyHero">
+    <img id="storyImage" src="" alt="">
+    <div class="caption">Every table holds a story. Every object carries a piece of the work.</div>
+  </div>
+  <div class="components">
+    <h3>What's on this table?</h3>
+    <div class="componentGrid" id="componentGrid"></div>
+  </div>
+</section>
+
 <div class="full" id="full"><div class="fullBox" id="fullBox"></div></div>
 
 <script>
@@ -114,7 +181,26 @@ const T=[
 const byCity=c=>T.findIndex(x=>x[1].toLowerCase()===c.toLowerCase());
 const cards=document.getElementById("cards");
 T.forEach((t,i)=>{cards.insertAdjacentHTML("beforeend",`<div class="mini" onclick="openCity('${t[1]}')"><img src="${t[7]}"><span>${String(i+1).padStart(2,"0")} · ${t[1]}</span></div>`)});
-function openCity(city){const i=byCity(city);if(i<0)return;const t=T[i];document.getElementById("popup").innerHTML=`<button class="close" onclick="closePopup()">×</button><img class="popupImg" src="${t[7]}" alt="${t[0]}'s workspace"><div class="popupBody"><div class="location">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>THE OBJECT THAT MATTERS</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div><button class="view" onclick="openFull(${i})">VIEW FULL STORY →</button></div>`;document.getElementById("popup").classList.add("show")}
+
+function showStorySection(i, scrollToIt=true){
+ const t=T[i];
+ const section=document.getElementById("storySection");
+ document.getElementById("storyLocation").textContent=t[1].toUpperCase()+" · "+t[2].toUpperCase();
+ document.getElementById("storyName").textContent=t[0];
+ document.getElementById("storyRole").textContent=t[3];
+ document.getElementById("storyText").textContent=t[6];
+ document.getElementById("storyFavourite").textContent=t[4];
+ document.getElementById("storyFavouriteReason").textContent=t[5];
+ const img=document.getElementById("storyImage");
+ img.src=t[7]; img.alt=t[0]+"'s working table";
+ const grid=document.getElementById("componentGrid");
+ grid.innerHTML=t[9].map((o,n)=>`<div class="componentItem"><img src="${t[7]}" alt=""><div><strong>${o}</strong><small>${n===0?"A working object from this table.":"Part of the everyday workspace."}</small></div></div>`).join("");
+ section.classList.add("show");
+ document.getElementById("storyTopButton").onclick=()=>section.scrollIntoView({behavior:"smooth",block:"start"});
+ if(scrollToIt) setTimeout(()=>section.scrollIntoView({behavior:"smooth",block:"start"}),80);
+}
+
+function openCity(city){const i=byCity(city);if(i<0)return;const t=T[i];showStorySection(i,true);document.getElementById("popup").innerHTML=`<button class="close" onclick="closePopup()">×</button><img class="popupImg" src="${t[7]}" alt="${t[0]}'s workspace"><div class="popupBody"><div class="location">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>THE OBJECT THAT MATTERS</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div><button class="view" onclick="openFull(${i})">VIEW FULL STORY →</button></div>`;document.getElementById("popup").classList.add("show")}
 function closePopup(){document.getElementById("popup").classList.remove("show")}
 function openFull(i){const t=T[i];document.getElementById("fullBox").innerHTML=`<div class="fullTop"><b>THE GREAT INDIAN TABLE</b><button onclick="closeFull()">×</button></div><div class="fullGrid"><img src="${t[7]}" alt="${t[0]}'s workspace"><div class="fullText"><div class="eyebrow">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>FAVOURITE ON THE TABLE</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div></div></div><section class="objects"><h3>What's on this table?</h3><div class="objectGrid">${t[9].map(o=>`<div class="object"><img src="${t[7]}" alt=""><div>${o}</div></div>`).join("")}</div></section>`;document.getElementById("full").classList.add("show")}
 function closeFull(){document.getElementById("full").classList.remove("show")}
