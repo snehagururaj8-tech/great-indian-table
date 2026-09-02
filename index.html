@@ -96,6 +96,12 @@ header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:
  .componentItem img{width:62px;height:52px}
 }
 
+
+.mapHits{position:absolute;inset:0;width:100%;height:100%;z-index:20;overflow:visible}
+.mapHit{fill:transparent;stroke:transparent;cursor:pointer;pointer-events:auto;outline:none}
+.mapHit:hover,.mapHit:focus{fill:rgba(217,103,53,.10);stroke:rgba(217,103,53,.55);stroke-width:5}
+@media(max-width:900px){.mapHit{stroke-width:7}.mapHit:active{fill:rgba(217,103,53,.12)}}
+
 </style>
 </head>
 <body>
@@ -110,7 +116,7 @@ header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:
 <div class="title"><div class="great">THE GREAT</div><div class="indian">INDIAN</div><div class="table">TABLE</div></div>
 <div class="tagline">Different tables. Different stories. <b>One India.</b></div>
 <div class="intro">Across cities and communities, people show up every day. Different tables, same spirit. Real people. Real workspaces.</div>
-<div class="storycall"><strong>Every table has a story.</strong><br><br>Click on any table to know more →</div>
+<div class="storycall"><strong>Every table has a story.</strong><br><br>Click on a city dot to discover its story →</div>
 <div class="stats"><div class="stat"><b>15</b><small>TABLES<br>ACROSS INDIA</small></div><div class="stat"><b>15</b><small>PEOPLE<br>& STORIES</small></div><div class="stat"><b>01</b><small>SHARED<br>INDIA</small></div></div>
 </div>
 
@@ -119,7 +125,7 @@ header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:
 <div class="mapNote">Click on a<br>city or a table<br>to explore<br>their story ↘</div>
 <div class="mapFrame">
 <div class="mapImageWrap">
-<img src="India-map.png" alt="India map reference">
+<img src="India-map.png" alt="India map reference"><svg class="mapHits" viewBox="0 0 1536 1536" aria-label="Clickable city locations"><circle cx="434" cy="152" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Kashmir" onclick="openCity('Kashmir')" ontouchend="openCity('Kashmir')" /><circle cx="382" cy="492" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Jaipur" onclick="openCity('Jaipur')" ontouchend="openCity('Jaipur')" /><circle cx="661" cy="540" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Lucknow" onclick="openCity('Lucknow')" ontouchend="openCity('Lucknow')" /><circle cx="510" cy="692" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Bhopal" onclick="openCity('Bhopal')" ontouchend="openCity('Bhopal')" /><circle cx="1004" cy="748" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Kolkata" onclick="openCity('Kolkata')" ontouchend="openCity('Kolkata')" /><circle cx="690" cy="828" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Bastar" onclick="openCity('Bastar')" ontouchend="openCity('Bastar')" /><circle cx="933" cy="861" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Chandipur" onclick="openCity('Chandipur')" ontouchend="openCity('Chandipur')" /><circle cx="259" cy="885" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Mumbai" onclick="openCity('Mumbai')" ontouchend="openCity('Mumbai')" /><circle cx="503" cy="947" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Hyderabad" onclick="openCity('Hyderabad')" ontouchend="openCity('Hyderabad')" /><circle cx="325" cy="1097" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Dharwad" onclick="openCity('Dharwad')" ontouchend="openCity('Dharwad')" /><circle cx="383" cy="1198" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Mysore" onclick="openCity('Mysore')" ontouchend="openCity('Mysore')" /><circle cx="476" cy="1174" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Bengaluru" onclick="openCity('Bengaluru')" ontouchend="openCity('Bengaluru')" /><circle cx="637" cy="1198" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Chennai" onclick="openCity('Chennai')" ontouchend="openCity('Chennai')" /><circle cx="365" cy="1291" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Kochi" onclick="openCity('Kochi')" ontouchend="openCity('Kochi')" /><circle cx="445" cy="1306" r="52" class="mapHit" tabindex="0" role="button" aria-label="Explore Coimbatore" onclick="openCity('Coimbatore')" ontouchend="openCity('Coimbatore')" /></svg>
 <div class="pin" data-city="Kashmir" onclick="openCity('Kashmir')"></div>
 <div class="pin" data-city="Jaipur" onclick="openCity('Jaipur')"></div>
 <div class="pin" data-city="Lucknow" onclick="openCity('Lucknow')"></div>
@@ -217,35 +223,7 @@ function openFull(i){const t=T[i];document.getElementById("fullBox").innerHTML=`
 function closeFull(){document.getElementById("full").classList.remove("show")}
 </script>
 
-<script>
-(function(){
- const mapImg = document.querySelector('.mapImageWrap img');
- if(!mapImg) return;
- const mapPoints = {
-  Kashmir:[434,152], Jaipur:[382,492], Lucknow:[661,540], Bhopal:[510,692],
-  Kolkata:[1004,748], Bastar:[690,828], Chandipur:[933,861], Mumbai:[259,885],
-  Hyderabad:[503,947], Dharwad:[325,1097], Mysore:[383,1198],
-  Bengaluru:[476,1174], Chennai:[637,1198], Kochi:[365,1291],
-  Coimbatore:[445,1306]
- };
- function handleMapTap(e){
-   const r=mapImg.getBoundingClientRect();
-   const p=e.touches ? e.touches[0] : e;
-   const x=(p.clientX-r.left)/r.width*1536;
-   const y=(p.clientY-r.top)/r.height*1536;
-   let best=null, dist=Infinity;
-   Object.entries(mapPoints).forEach(([city,pt])=>{
-     const d=Math.hypot(x-pt[0],y-pt[1]);
-     if(d<dist){dist=d;best=city;}
-   });
-   // Generous touch radius for phones.
-   if(best && dist<=95) openCity(best);
- }
- mapImg.style.cursor='pointer';
- mapImg.style.touchAction='manipulation';
- mapImg.addEventListener('click',handleMapTap);
-})();
-</script>
+
 
 </body>
 </html>
