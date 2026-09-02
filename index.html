@@ -3,91 +3,122 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Great Indian Table</title>
+<title>The Great Indian Table — Where India Works</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#f3ead9;color:#17202b;font-family:Arial,sans-serif}
-body{overflow-x:hidden}.nav{height:78px;border-bottom:1px solid #c9bdab;display:flex;align-items:center;justify-content:space-between;padding:0 5vw}
-.brand{font-size:12px;line-height:1.05;letter-spacing:2px;font-weight:800}.brand span{font-weight:400}
-.brand small{display:block;font-size:7px;letter-spacing:1.8px;font-weight:400;color:#a95738;margin-bottom:5px}
-.navlinks{display:flex;gap:30px;font-size:9px;letter-spacing:1.8px}.hero{height:calc(100vh - 78px);min-height:650px;position:relative;overflow:hidden}
-.copy{position:absolute;left:8vw;top:17%;width:33%;z-index:3}.kicker,.eyebrow,.label{font-size:9px;letter-spacing:2.2px;font-weight:800;color:#a95738}
-h1{font:400 clamp(52px,6.2vw,90px)/.9 Georgia,serif;margin:18px 0}h1 i{font-style:italic}.copy p{max-width:330px;color:#716c62;font:14px/1.6 Georgia,serif}
-.stats{display:flex;gap:25px;margin-top:35px}.stat{display:flex;gap:9px;align-items:center}.stat b{font:italic 40px Georgia}.stat span{font-size:8px;letter-spacing:1.4px;line-height:1.4}.mapArea{position:absolute;right:1vw;top:2%;width:67%;height:95%;display:flex;align-items:center;justify-content:center}
-.mapTitle{position:absolute;right:10%;top:4%;font:italic 17px Georgia;color:#857866;line-height:1.1;text-align:right}
-.mapWrap{width:min(700px,88%);position:relative}.exactMap{background:#fff;border:1px solid #d4c6b1;box-shadow:12px 18px 0 rgba(42,38,30,.05);overflow:visible}.indiaImage{display:block;width:100%;height:auto}.clickPin{position:absolute;width:22px;height:22px;transform:translate(-50%,-50%);border-radius:50%;cursor:pointer;background:transparent;z-index:4}.clickPin:after{content:"";position:absolute;left:50%;top:50%;width:14px;height:14px;transform:translate(-50%,-50%);border:2px solid transparent;border-radius:50%}.clickPin:hover:after{border-color:#a95738;background:rgba(255,250,240,.25)}.india{width:100%;height:auto;filter:drop-shadow(12px 18px 0 rgba(42,38,30,.07))}
-.outline{fill:#d9c4a7;stroke:#28313a;stroke-width:.55}.line{fill:none;stroke:#b09e86;stroke-width:.28;stroke-dasharray:1.2 1.1}
-.pin{fill:#a95738;stroke:#f3ead9;stroke-width:.7;cursor:pointer}.pin.active{fill:#17202b}.halo{fill:none;stroke:#a95738;stroke-width:.3;opacity:.4}
-.mapWord{position:absolute;right:10%;bottom:8%;font:italic 27px Georgia;color:#857866}.mapCaption{position:absolute;left:8%;bottom:6%;font-size:7px;letter-spacing:2px;color:#a95738;line-height:1.7}
-.card{position:absolute;z-index:8;right:5vw;top:7%;width:min(400px,39vw);background:#fffaf0;border:1px solid #d4c6b1;box-shadow:0 24px 60px rgba(42,34,24,.2);animation:in .25s ease-out}
-.card img{width:100%;height:190px;object-fit:cover;display:block}.cardbody{padding:20px 22px}.close{position:absolute;right:9px;top:8px;border:0;border-radius:50%;width:30px;height:30px;background:#fffaf0;font-size:20px}
-.card h2{font:34px Georgia;margin:7px 0 2px}.profession{font-size:11px;color:#716c62;letter-spacing:1px}.card p{font:13px/1.55 Georgia}.fav{border-top:1px solid #c9bdab;border-bottom:1px solid #c9bdab;padding:12px 0;margin:15px 0;display:grid;gap:5px}.fav strong{font:18px Georgia}.fav small{font-size:10px;color:#716c62}.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}.chips span{font-size:8px;border:1px solid #d8cdbd;padding:5px 7px;color:#625c52}.storybtn{display:inline-block;background:#17202b;color:#fffaf0;padding:12px 15px;margin-top:15px;font-size:9px;letter-spacing:1.7px;cursor:pointer}
-.bottom{position:absolute;left:5vw;right:5vw;bottom:16px;font-size:7px;letter-spacing:1.3px;color:#716c62;white-space:nowrap}
-.modal{display:none;position:fixed;inset:0;background:rgba(23,32,43,.38);z-index:20;padding:5vh 5vw;overflow:auto}.modal.show{display:block}.modalbox{max-width:1100px;margin:auto;background:#f3ead9;min-height:90vh;border:1px solid #c9bdab}.modalhead{padding:18px 25px;border-bottom:1px solid #c9bdab;display:flex;justify-content:space-between;align-items:center}.modalhead button{border:0;background:none;font-size:25px}.story{display:grid;grid-template-columns:1.2fr .8fr;gap:45px;padding:35px}.story img{width:100%;height:520px;object-fit:cover}.storytext h2{font:65px Georgia;margin:10px 0}.storytext h3{font-size:11px;color:#716c62;letter-spacing:1px}.big{font:20px/1.55 Georgia;margin:40px 0}.gallery{padding:0 35px 45px}.gallery h3{font:36px Georgia;border-bottom:1px solid #c9bdab;padding-bottom:15px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.grid div{font:13px Georgia}.grid img{width:100%;height:135px;object-fit:cover}
-@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-@media(max-width:850px){.nav{height:65px;padding:0 18px}.edition{display:none}.navlinks{gap:12px}.hero{height:calc(100vh - 65px);min-height:720px}.copy{left:22px;top:5%;width:85%}.copy h1{font-size:52px}.copy p{font-size:12px}.stats{margin-top:18px}.mapArea{top:235px;right:0;width:100%;height:55%}.mapWrap{width:96%}.mapTitle{font-size:11px;right:7%;top:0}.card{left:15px;right:15px;top:auto;bottom:18px;width:auto;max-height:56vh;overflow:auto}.card img{height:130px}.cardbody{padding:15px}.card h2{font-size:27px}.card p{font-size:11px}.bottom{display:none}.story{display:block;padding:20px}.story img{height:330px}.storytext h2{font-size:52px}.grid{grid-template-columns:repeat(2,1fr)}.gallery{padding:0 20px 30px}.gallery h3{font-size:28px}}
+:root{
+ --paper:#f3ead8;--paper2:#fbf6eb;--ink:#182331;--muted:#6f695e;
+ --orange:#d96735;--green:#5b7f58;--blue:#456b8e;--purple:#766092;
+ --line:#cdbfa9;--white:#fffdf7;
+}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+button{font:inherit}.page{height:100vh;min-height:650px;position:relative;overflow:hidden}
+.page:before{content:"";position:absolute;inset:0;opacity:.18;pointer-events:none;background-image:radial-gradient(#8f806b .55px,transparent .55px);background-size:8px 8px}
+header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 4.5vw;position:relative;z-index:10}
+.logo{font-weight:900;letter-spacing:1.7px;font-size:12px;line-height:.95}.logo em{display:block;font:italic 10px Georgia;color:var(--orange);letter-spacing:1px;margin-bottom:4px}
+.logo span{color:var(--orange)}.nav{margin-left:auto;display:flex;align-items:center;gap:28px;font-size:9px;letter-spacing:1.7px}
+.nav a{color:var(--ink);text-decoration:none}.share{border:0;background:var(--ink);color:white;border-radius:20px;padding:10px 15px;font-size:8px;letter-spacing:1.5px}
+.hero{height:calc(100vh - 72px);position:relative}.copy{position:absolute;left:5vw;top:7%;width:37%;z-index:4}
+.eyebrow{font-size:8px;letter-spacing:2.2px;color:var(--orange);font-weight:800}.title{font:900 clamp(50px,6vw,82px)/.78 Arial,sans-serif;letter-spacing:-4px;margin:14px 0 17px;text-transform:uppercase}
+.title .great{color:var(--ink)}.title .indian{color:var(--orange)}.title .table{color:var(--green)}
+.tagline{font:italic 18px/1.15 Georgia;color:#4c514c;max-width:430px}.tagline b{color:var(--blue)}
+.intro{font:12px/1.55 Georgia;color:var(--muted);max-width:360px;margin:15px 0 17px}
+.storycall{border-top:1px solid var(--line);padding-top:13px;font-size:9px;letter-spacing:1.4px}.storycall strong{color:var(--orange)}
+.stats{display:flex;gap:8px;margin-top:24px}.stat{background:rgba(255,253,247,.72);border:1px solid var(--line);border-radius:10px;min-width:105px;padding:10px 12px;display:flex;gap:9px;align-items:center}
+.stat b{font:italic 25px Georgia}.stat small{font-size:7px;letter-spacing:1px;color:var(--muted);line-height:1.25}
+.mapPanel{position:absolute;right:2vw;top:1%;width:61%;height:98%;z-index:2}.mapPanel:after{content:"";position:absolute;right:2%;bottom:6%;width:110px;height:50px;border-bottom:2px dashed #b6a58d;border-radius:50%;transform:rotate(-8deg);opacity:.6}
+.mapFrame{position:absolute;inset:6% 3% 2% 4%;background:rgba(255,253,247,.55);border:1px solid #d6c9b6;border-radius:18px;padding:3% 4%;box-shadow:10px 12px 0 rgba(62,51,37,.04)}
+.mapFrame img{width:100%;height:100%;object-fit:contain;display:block;filter:saturate(.92)}
+.pin{position:absolute;width:18px;height:18px;transform:translate(-50%,-50%);border-radius:50%;cursor:pointer;z-index:5}
+.pin:before{content:"";position:absolute;inset:4px;background:var(--orange);border:2px solid var(--white);border-radius:50%;box-shadow:0 0 0 1px #9f755b}
+.pin:after{content:"";position:absolute;left:15px;top:-2px;width:max-content;white-space:nowrap;font-size:7px;letter-spacing:.5px;background:rgba(255,253,247,.9);padding:3px 5px;border-radius:4px;color:var(--ink);opacity:0;transition:.15s}
+.pin:hover:after{opacity:1}.mapNote{position:absolute;right:4%;top:8%;font:italic 13px/1.15 Georgia;color:var(--muted);text-align:center;transform:rotate(3deg)}
+.pin[data-city="Kashmir"]{left:28%;top:14%}.pin[data-city="Jaipur"]{left:31%;top:34%}.pin[data-city="Lucknow"]{left:45%;top:35%}.pin[data-city="Bhopal"]{left:38%;top:47%}.pin[data-city="Kolkata"]{left:67%;top:49%}.pin[data-city="Chandipur"]{left:63%;top:57%}.pin[data-city="Mumbai"]{left:27%;top:57%}.pin[data-city="Hyderabad"]{left:40%;top:60%}.pin[data-city="Bastar"]{left:51%;top:57%}.pin[data-city="Dharwad"]{left:31%;top:70%}.pin[data-city="Bengaluru"]{left:39%;top:77%}.pin[data-city="Mysore"]{left:33%;top:80%}.pin[data-city="Chennai"]{left:49%;top:80%}.pin[data-city="Coimbatore"]{left:40%;top:87%}.pin[data-city="Kochi"]{left:35%;top:89%}
+.mapLegend{position:absolute;left:6%;bottom:7%;font-size:7px;letter-spacing:1.7px;color:var(--orange)}.indiaWord{position:absolute;right:6%;bottom:7%;font:italic 24px Georgia;color:#827665}
+.doodle{position:absolute;font:28px Georgia;color:#a95738;opacity:.55}.d1{left:2%;top:2%}.d2{left:46%;top:6%}.d3{right:2%;bottom:13%}
+.cards{position:absolute;left:4.5vw;right:4.5vw;bottom:3.5%;display:flex;gap:8px;z-index:6}
+.mini{width:78px;height:52px;background:#fff;border:1px solid var(--line);overflow:hidden;position:relative;cursor:pointer;border-radius:4px}
+.mini img{width:100%;height:100%;object-fit:cover}.mini span{position:absolute;left:4px;bottom:3px;background:rgba(24,35,49,.84);color:white;font-size:6px;padding:3px 4px;letter-spacing:.4px}
+.popup{position:absolute;z-index:12;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,55vw);background:var(--white);border:1px solid #cdbfa9;border-radius:18px;box-shadow:0 25px 70px rgba(40,30,20,.24);overflow:hidden;display:none}
+.popup.show{display:grid;grid-template-columns:44% 56%}.popupImg{width:100%;height:100%;min-height:310px;object-fit:cover}.popupBody{padding:23px 24px}.close{position:absolute;right:11px;top:10px;border:0;background:var(--ink);color:white;width:27px;height:27px;border-radius:50%;z-index:2}
+.location{font-size:8px;letter-spacing:1.5px;color:var(--purple);font-weight:800}.popup h2{font:42px Georgia;margin:8px 0 2px}.role{font-size:9px;color:var(--orange);letter-spacing:1.2px}.popup p{font:12px/1.5 Georgia;color:#4d4a43}.fav{border-top:1px solid var(--line);margin-top:13px;padding-top:11px}.fav label{font-size:7px;letter-spacing:1.4px;color:var(--muted)}.fav strong{display:block;font:18px Georgia;margin:4px 0}.fav small{font:11px Georgia;color:var(--muted)}.view{border:0;background:var(--ink);color:white;padding:11px 14px;margin-top:14px;font-size:8px;letter-spacing:1.5px;border-radius:2px}
+.full{position:fixed;inset:0;background:rgba(24,35,49,.55);z-index:30;display:none;overflow:auto;padding:4vh 4vw}.full.show{display:block}.fullBox{max-width:1100px;margin:auto;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}.fullTop{padding:15px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.fullTop button{border:0;background:none;font-size:22px}.fullGrid{display:grid;grid-template-columns:1.1fr .9fr}.fullGrid img{width:100%;height:520px;object-fit:cover}.fullText{padding:45px}.fullText h2{font:65px Georgia;margin:10px 0}.fullText p{font:19px/1.55 Georgia;color:#4d4a43}.objects{padding:30px;border-top:1px solid var(--line)}.objects h3{font:35px Georgia;margin:0 0 18px}.objectGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.object{background:var(--white);border:1px solid var(--line);padding:5px}.object img{width:100%;height:95px;object-fit:cover}.object div{font-size:8px;padding:7px 3px}
+@media(max-width:900px){
+ body{overflow:auto}.page{min-height:900px;height:auto}.hero{height:calc(100vh - 72px);min-height:820px}.copy{left:22px;top:4%;width:85%}.title{font-size:48px;letter-spacing:-2.5px}.tagline{font-size:15px}.stats{margin-top:15px}.stat{min-width:92px;padding:8px}.mapPanel{top:28%;right:0;width:100%;height:60%}.mapFrame{inset:4% 2% 2% 2%}.mapNote{display:none}.cards{bottom:13px;overflow:hidden;gap:5px}.mini{min-width:58px;height:42px}.popup{left:10px;right:10px;top:auto;bottom:12px;transform:none;width:auto;display:none}.popup.show{display:block}.popupImg{height:130px;min-height:0}.popupBody{padding:14px}.popup h2{font-size:30px}.popup p{font-size:11px}.fullGrid{display:block}.fullGrid img{height:330px}.fullText{padding:25px}.fullText h2{font-size:50px}.objectGrid{grid-template-columns:repeat(2,1fr)}
+}
 </style>
 </head>
 <body>
-<header class="nav">
- <div class="brand"><small>AN ARCHIVE OF</small>THE GREAT<br><span>INDIAN TABLE</span></div>
- <div class="edition" style="font-size:8px;letter-spacing:2px;color:#857866">VOL. 01 · 2026</div>
- <nav class="navlinks"><a href="#">THE TABLES</a><a href="#">ABOUT</a></nav>
+<div class="page">
+<header>
+<div class="logo"><em>AN ARCHIVE OF</em>THE GREAT <span>INDIAN TABLE</span></div>
+<div class="nav"><a href="#" onclick="return false">STORIES</a><a href="#" onclick="return false">CITIES</a><a href="#" onclick="return false">PEOPLE</a><a href="#" onclick="return false">ABOUT</a><button class="share" onclick="alert('Share a Table — coming soon')">↗ SHARE A TABLE</button></div>
 </header>
-<main class="hero">
-<section class="copy"><div class="kicker">WHERE INDIA WORKS</div><h1>Every table<br><i>tells a story.</i></h1><p>A visual archive of the people, places and everyday objects that make India work.</p><div class="stats"><div class="stat"><b>15</b><span>TABLES<br>ACROSS INDIA</span></div><div class="stat"><b>15</b><span>STORIES<br>FROM INDIA</span></div></div></section>
-<section class="mapArea">
-<div class="mapTitle">A COUNTRY<br><i>AT WORK</i></div>
-<div class="mapWrap exactMap">
-  <img class="indiaImage" src="India-map.png" alt="Illustrated map of India with the 15 project locations">
-  <div class="clickPin" style="left:28.26%;top:9.90%" onclick="openCardByCity('Kashmir')" title="Kashmir"></div>
-  <div class="clickPin" style="left:24.87%;top:32.03%" onclick="openCardByCity('Jaipur')" title="Jaipur"></div>
-  <div class="clickPin" style="left:42.94%;top:35.16%" onclick="openCardByCity('Lucknow')" title="Lucknow"></div>
-  <div class="clickPin" style="left:33.24%;top:45.06%" onclick="openCardByCity('Bhopal')" title="Bhopal"></div>
-  <div class="clickPin" style="left:65.39%;top:48.68%" onclick="openCardByCity('Kolkata')" title="Kolkata"></div>
-  <div class="clickPin" style="left:44.92%;top:53.91%" onclick="openCardByCity('Bastar')" title="Bastar"></div>
-  <div class="clickPin" style="left:60.75%;top:56.02%" onclick="openCardByCity('Chandipur')" title="Chandipur"></div>
-  <div class="clickPin" style="left:16.83%;top:57.61%" onclick="openCardByCity('Mumbai')" title="Mumbai"></div>
-  <div class="clickPin" style="left:32.75%;top:61.67%" onclick="openCardByCity('Hyderabad')" title="Hyderabad"></div>
-  <div class="clickPin" style="left:21.16%;top:71.42%" onclick="openCardByCity('Dharwad')" title="Dharwad"></div>
-  <div class="clickPin" style="left:24.90%;top:78.03%" onclick="openCardByCity('Mysore')" title="Mysore"></div>
-  <div class="clickPin" style="left:31.00%;top:76.43%" onclick="openCardByCity('Bengaluru')" title="Bengaluru"></div>
-  <div class="clickPin" style="left:41.44%;top:78.01%" onclick="openCardByCity('Chennai')" title="Chennai"></div>
-  <div class="clickPin" style="left:23.73%;top:84.02%" onclick="openCardByCity('Kochi')" title="Kochi"></div>
-  <div class="clickPin" style="left:28.94%;top:85.02%" onclick="openCardByCity('Coimbatore')" title="Coimbatore"></div>
-  <div class="mapWord">INDIA</div>
-  <div class="mapCaption">CLICK A CITY<br><i>TO MEET THE MAKER</i></div>
+<section class="hero">
+<div class="copy">
+<div class="eyebrow">WHERE INDIA WORKS</div>
+<div class="title"><div class="great">THE GREAT</div><div class="indian">INDIAN</div><div class="table">TABLE</div></div>
+<div class="tagline">Different tables. Different stories. <b>One India.</b></div>
+<div class="intro">Across cities and communities, people show up every day. Different tables, same spirit. Real people. Real workspaces.</div>
+<div class="storycall"><strong>Every table has a story.</strong><br><br>Click on any table to know more →</div>
+<div class="stats"><div class="stat"><b>15</b><small>TABLES<br>ACROSS INDIA</small></div><div class="stat"><b>15</b><small>PEOPLE<br>& STORIES</small></div><div class="stat"><b>01</b><small>SHARED<br>INDIA</small></div></div>
 </div>
+
+<div class="mapPanel">
+<div class="doodle d1">✦</div><div class="doodle d2">⌁</div><div class="doodle d3">☼</div>
+<div class="mapNote">Click on a<br>city or a table<br>to explore<br>their story ↘</div>
+<div class="mapFrame">
+<img src="India-map.png" alt="India map reference">
+<div class="pin" data-city="Kashmir" onclick="openCity('Kashmir')"></div>
+<div class="pin" data-city="Jaipur" onclick="openCity('Jaipur')"></div>
+<div class="pin" data-city="Lucknow" onclick="openCity('Lucknow')"></div>
+<div class="pin" data-city="Bhopal" onclick="openCity('Bhopal')"></div>
+<div class="pin" data-city="Kolkata" onclick="openCity('Kolkata')"></div>
+<div class="pin" data-city="Chandipur" onclick="openCity('Chandipur')"></div>
+<div class="pin" data-city="Mumbai" onclick="openCity('Mumbai')"></div>
+<div class="pin" data-city="Hyderabad" onclick="openCity('Hyderabad')"></div>
+<div class="pin" data-city="Bastar" onclick="openCity('Bastar')"></div>
+<div class="pin" data-city="Dharwad" onclick="openCity('Dharwad')"></div>
+<div class="pin" data-city="Bengaluru" onclick="openCity('Bengaluru')"></div>
+<div class="pin" data-city="Mysore" onclick="openCity('Mysore')"></div>
+<div class="pin" data-city="Chennai" onclick="openCity('Chennai')"></div>
+<div class="pin" data-city="Coimbatore" onclick="openCity('Coimbatore')"></div>
+<div class="pin" data-city="Kochi" onclick="openCity('Kochi')"></div>
+<div class="mapLegend">15 CITIES · 15 TABLES · 15 STORIES</div><div class="indiaWord">INDIA</div>
+</div>
+</div>
+
+<div class="cards" id="cards"></div>
+<div class="popup" id="popup"></div>
 </section>
-<div id="card"></div>
-<div class="bottom">✦ MYSORE · BENGALURU · COIMBATORE · DHARWAD · CHENNAI · KOLKATA · BHOPAL · HYDERABAD · LUCKNOW · MUMBAI · KOCHI · JAIPUR · KASHMIR · BASTAR</div>
-</main>
-<div class="modal" id="modal"><div class="modalbox" id="modalbox"></div></div>
+</div>
+<div class="full" id="full"><div class="fullBox" id="fullBox"></div></div>
+
 <script>
-const tables=[
-["Lakshmi","Mysore","Karnataka","Flower Garland Maker","Thread","It binds the flowers together.","Every morning, Lakshmi sits before Chamundeshwari Temple, weaving fragrant flowers into garlands. Through devotees, her flowers reach the goddess, carrying love, faith, and devotion.","Lakshmi.png",12.3052,76.6552,["Jasmine","Crossandra","Yellow chrysanthemums","Red roses","Green leaves / tulasi","White cotton thread","Long needles","Scissors","Flower baskets"]],
-["Smitha","Bengaluru","Karnataka","Dentist","Dental crowns / artificial teeth","They can give people a confident smile.","In Bengaluru, Smitha doesn't just fix teeth; she restores confidence. Every crown she places is a small step toward helping someone smile without hesitation.","Smitha.png",12.9716,77.5946,["Dental crowns","Artificial jaw model","Dental X-ray","Dental instruments","Dental mirrors","Dental handpieces","Air-water syringe","Dental burs","Dental implant model"]],
-["Shruti","Coimbatore","Tamil Nadu","Makeup Artist","Blush","It brings out the bride's natural glow and makes her blush on her wedding day.","In Coimbatore, Shruti turns bridal moments into memories. With every brushstroke, she adds confidence, glow and a little blush to a bride's happiest day.","Shruti.png",11.0168,76.9558,["Blush","Makeup brushes","Foundation","Lip products","Eyeshadow palette","Mirror","Makeup sponge","Hair accessories"]],
-["Savithri","Dharwad","Karnataka","Lab Technician","Microscope","It was central to her work testing hundreds of samples during COVID.","During COVID, Savithri stood behind her microscope at KIMS Dharwad, testing hundreds of samples. For her, every slide meant another chance to protect a life.","Savithri.png",15.4589,75.0078,["Compound microscope","Petri dishes","Sample tubes","Glass slides","70% ethanol","Hand sanitizer","Gloves","Biohazard waste bins","Laboratory report"]],
-["Ravi","Chennai","Tamil Nadu","Aspiring Screenwriter & Director","Pen","It carries his dream from a blank page to the screen.","In Chennai, Ravi writes beyond the screen. He dreams of directing stories that capture hearts, spark imagination, and inspire the next generation of filmmakers.","Ravi.png",13.0827,80.2707,["Pen","MacBook","Screenwriting software","Notepad","Index cards","Sticky notes","Desk lamp","Coffee mug","Screenwriting books"]],
-["Subash","Kolkata","West Bengal","Fish Vendor","Knife","Carefully removes scales and thorns to help consumers.","In Kolkata's bustling fish market, Subash does more than sell the day's catch. With a careful knife, he prepares every fish with his customers in mind.","Subhash.png",22.5726,88.3639,["Fish knife","Fresh fish","Prawns","Crushed ice","Hanging weighing scale","Wooden cutting block","Water spray bottle","Steel trays","Price tags"]],
-["Naveen","Bhopal","Madhya Pradesh","Government Municipality Clerk","Rubber stamp","He wants to move files ASAP so people don't need to roam to get work done.","In Bhopal's municipal office, Naveen knows every delayed file means another trip for someone. His rubber stamp helps move work forward—and people closer to getting things done.","Naveen.png",23.2599,77.4126,["Rubber stamp","Stamp pad","Government files","Application forms","IN / PENDING / OUT trays","Calculator","Office telephone","Register","Pens"]],
-["Shashank","Hyderabad","Telangana","AI Tech Lead","Laptop","He wants to create something ethical and meaningful in AI.","In Hyderabad, Shashank builds AI with a purpose. His laptop is more than a machine—it is where he turns ideas into ethical, meaningful solutions.","Shashank.png",17.385,78.4867,["Laptop","AI dashboard monitor","Keyboard","Mouse","Headphones","External SSD","System-design notebook","AI/ML books","Roadmap"]],
-["Ramesh","Lucknow","Uttar Pradesh","Vegetable Vendor","Weighing machine","He wants to serve customers with fresh vegetables and proper weight.","In Lucknow's bustling vegetable market, Ramesh believes freshness and fairness go together. His weighing machine helps ensure every customer takes home fresh vegetables at the right weight.","Ramesh.png",26.8467,80.9462,["Traditional weighing machine","Coriander","Capsicum","Green chillies","Gourds","Tomatoes","Woven baskets","Vegetable crates"]],
-["Rahul","Mumbai","Maharashtra","Salon Owner / Hair Stylist","Scissors","They are an essential tool for creating hairstyles.","In Mumbai, Rahul turns every haircut into a craft. His scissors carry a bigger dream—to one day create hairstyles for the stars he has always admired.","Rahul.png",19.076,72.8777,["Professional scissors","Comb","Salon mirror","Hair cape","Hair products","Spray bottles","Styling tools","Salon chair"]],
-["Sudhir","Chandipur","Maharashtra","Tea Shop Owner","Tea kettle","He wants people to remember his tea taste for generations.","In Chandipur, Sudhir's kettle has brewed countless cups and conversations. His dream is simple: a taste so memorable, it travels through generations.","Sudhir.png",20,79.3,["Tea kettle","Milk / tea vessels","Tea glasses","Tea stove","Tea strainer","Serving vessels","Tea ingredients","Water containers"]],
-["Justin","Kochi","Kerala","Mechanic","Socket","It is always within reach when he repairs machines.","In a Kochi garage, Justin works with skill and patience, one repair at a time. His socket is always within reach, while his bigger dream is to someday open his own shop.","Justin.png",9.9312,76.2673,["Socket","Combination wrenches","Hammer","Gears","Ratchet tools","Screwdrivers","Bench vise","Lubricants","Nuts and bolts"]],
-["Pushkar","Jaipur","Rajasthan","Lac Bangle Workshop Owner","Lac / resin","It is the material that gives his bangles colour, character and beauty.","In Jaipur, Pushkar transforms lac into vibrant bangles. Each piece carries his craft and care, helping women and brides feel beautiful on festivals and special occasions.","Pushkar.png",26.9124,75.7873,["Lac / resin","Finished lac bangles","Colour pigments","Heating setup","Bangle tools","Metal rods","Shaping tools","Mixing vessels","Display trays"]],
-["Yousuf","Kashmir","Jammu & Kashmir","Traditional Craftsman — Walnut Wood Carving","Chisel","It is the tool through which he brings intricate designs to life.","In Kashmir, Yousuf carves stories into walnut wood. His trusted chisel brings generations-old artistry to life, with a dream of sharing Kashmir's craft worldwide.","Yousuf.png",34.0837,74.7973,["Wood-carving chisel","Walnut carving panel","Carving gouges","Wooden mallets","Fine carving tools","Walnut wood pieces","Carved wooden boxes","Wood shavings"]],
-["Latha","Bastar","Chhattisgarh","Teacher","Blackboard","She believes it makes the children's future brighter.","In Bastar, Latha teaches beyond textbooks. Her blackboard becomes a window to possibility, helping children imagine a brighter future beyond the challenges around them.","Latha.png",19.1071,81.9535,["Blackboard","Textbooks","Attendance register","Lesson notebook","Red pen","Student files","Notebooks","Water bottle","Desk bell"]]
+const T=[
+["Lakshmi","Mysore","Karnataka","Flower Garland Maker","Thread","It binds the flowers together.","Every morning, Lakshmi sits before Chamundeshwari Temple, weaving fragrant flowers into garlands. Through devotees, her flowers reach the goddess, carrying love, faith, and devotion.","Lakshmi.png",["Jasmine","Crossandra","Yellow chrysanthemums","Red roses","Green leaves / tulasi","White cotton thread","Long needles","Scissors","Flower baskets"]],
+["Smitha","Bengaluru","Karnataka","Dentist","Dental crowns / artificial teeth","They can give people a confident smile.","In Bengaluru, Smitha doesn't just fix teeth; she restores confidence. Every crown she places is a small step toward helping someone smile without hesitation.","Smitha.png",["Dental crowns","Artificial jaw model","Dental X-ray","Dental instruments","Dental mirrors","Dental handpieces","Air-water syringe","Dental burs","Dental implant model"]],
+["Shruti","Coimbatore","Tamil Nadu","Makeup Artist","Blush","It brings out the bride's natural glow and makes her blush on her wedding day.","In Coimbatore, Shruti turns bridal moments into memories. With every brushstroke, she adds confidence, glow and a little blush to a bride's happiest day.","Shruti.png",["Blush","Makeup brushes","Foundation","Lip products","Eyeshadow palette","Mirror","Makeup sponge","Hair accessories"]],
+["Savithri","Dharwad","Karnataka","Lab Technician","Microscope","It was central to her work testing hundreds of samples during COVID.","During COVID, Savithri stood behind her microscope at KIMS Dharwad, testing hundreds of samples. For her, every slide meant another chance to protect a life.","Savithri.png",["Compound microscope","Petri dishes","Sample tubes","Glass slides","70% ethanol","Hand sanitizer","Gloves","Biohazard waste bins","Laboratory report"]],
+["Ravi","Chennai","Tamil Nadu","Aspiring Screenwriter & Director","Pen","It carries his dream from a blank page to the screen.","In Chennai, Ravi writes beyond the screen. He dreams of directing stories that capture hearts, spark imagination, and inspire the next generation of filmmakers.","Ravi.png",["Pen","MacBook","Screenwriting software","Notepad","Index cards","Sticky notes","Desk lamp","Coffee mug","Screenwriting books"]],
+["Subash","Kolkata","West Bengal","Fish Vendor","Knife","Carefully removes scales and thorns to help consumers.","In Kolkata's bustling fish market, Subash does more than sell the day's catch. With a careful knife, he prepares every fish with his customers in mind.","Subhash.png",["Fish knife","Fresh fish","Prawns","Crushed ice","Hanging weighing scale","Wooden cutting block","Water spray bottle","Steel trays","Price tags"]],
+["Naveen","Bhopal","Madhya Pradesh","Government Municipality Clerk","Rubber stamp","He wants to move files ASAP so people don't need to roam to get work done.","In Bhopal's municipal office, Naveen knows every delayed file means another trip for someone. His rubber stamp helps move work forward—and people closer to getting things done.","Naveen.png",["Rubber stamp","Stamp pad","Government files","Application forms","IN / PENDING / OUT trays","Calculator","Office telephone","Register","Pens"]],
+["Shashank","Hyderabad","Telangana","AI Tech Lead","Laptop","He wants to create something ethical and meaningful in AI.","In Hyderabad, Shashank builds AI with a purpose. His laptop is more than a machine—it is where he turns ideas into ethical, meaningful solutions.","Shashank.png",["Laptop","AI dashboard monitor","Keyboard","Mouse","Headphones","External SSD","System-design notebook","AI/ML books","Roadmap"]],
+["Ramesh","Lucknow","Uttar Pradesh","Vegetable Vendor","Weighing machine","He wants to serve customers with fresh vegetables and proper weight.","In Lucknow's bustling vegetable market, Ramesh believes freshness and fairness go together. His weighing machine helps ensure every customer takes home fresh vegetables at the right weight.","Ramesh.png",["Traditional weighing machine","Coriander","Capsicum","Green chillies","Gourds","Tomatoes","Woven baskets","Vegetable crates"]],
+["Rahul","Mumbai","Maharashtra","Salon Owner / Hair Stylist","Scissors","They are an essential tool for creating hairstyles.","In Mumbai, Rahul turns every haircut into a craft. His scissors carry a bigger dream—to one day create hairstyles for the stars he has always admired.","Rahul.png",["Professional scissors","Comb","Salon mirror","Hair cape","Hair products","Spray bottles","Styling tools","Salon chair"]],
+["Sudhir","Chandipur","Maharashtra","Tea Shop Owner","Tea kettle","He wants people to remember his tea taste for generations.","In Chandipur, Sudhir's kettle has brewed countless cups and conversations. His dream is simple: a taste so memorable, it travels through generations.","Sudhir.png",["Tea kettle","Milk / tea vessels","Tea glasses","Tea stove","Tea strainer","Serving vessels","Tea ingredients","Water containers"]],
+["Justin","Kochi","Kerala","Mechanic","Socket","It is always within reach when he repairs machines.","In a Kochi garage, Justin works with skill and patience, one repair at a time. His socket is always within reach, while his bigger dream is to someday open his own shop.","Justin.png",["Socket","Combination wrenches","Hammer","Gears","Ratchet tools","Screwdrivers","Bench vise","Lubricants","Nuts and bolts"]],
+["Pushkar","Jaipur","Rajasthan","Lac Bangle Workshop Owner","Lac / resin","It is the material that gives his bangles colour, character and beauty.","In Jaipur, Pushkar transforms lac into vibrant bangles. Each piece carries his craft and care, helping women and brides feel beautiful on festivals and special occasions.","Pushkar.png",["Lac / resin","Finished lac bangles","Colour pigments","Heating setup","Bangle tools","Metal rods","Shaping tools","Mixing vessels","Display trays"]],
+["Yousuf","Kashmir","Jammu & Kashmir","Traditional Craftsman — Walnut Wood Carving","Chisel","It is the tool through which he brings intricate designs to life.","In Kashmir, Yousuf carves stories into walnut wood. His trusted chisel brings generations-old artistry to life, with a dream of sharing Kashmir's craft worldwide.","Yousuf.png",["Wood-carving chisel","Walnut carving panel","Carving gouges","Wooden mallets","Fine carving tools","Walnut wood pieces","Carved wooden boxes","Wood shavings"]],
+["Latha","Bastar","Chhattisgarh","Teacher","Blackboard","She believes it makes the children's future brighter.","In Bastar, Latha teaches beyond textbooks. Her blackboard becomes a window to possibility, helping children imagine a brighter future beyond the challenges around them.","Latha.png",["Blackboard","Textbooks","Attendance register","Lesson notebook","Red pen","Student files","Notebooks","Water bottle","Desk bell"]]
 ];
-function project(lat,lng){return{x:8+((lng-68)/30)*84,y:5+((36-lat)/31)*90}}
-const card=document.getElementById("card");
-let selected=-1;
-function openCardByCity(city){const i=tables.findIndex(t=>t[1].toLowerCase()===city.toLowerCase());if(i>=0)openCard(i)}
-function openCard(i){selected=i;let t=tables[i];document.querySelectorAll(".pin").forEach((x,j)=>x.classList.toggle("active",j===i));card.innerHTML=`<aside class="card"><button class="close" onclick="closeCard()">×</button><img src="${t[7]}" alt="${t[0]}'s workspace"><div class="cardbody"><div class="eyebrow">${t[1].toUpperCase()}, ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="profession">${t[3]}</div><p>${t[6]}</p><div class="fav"><span class="label">FAVOURITE ON THE TABLE</span><strong>${t[4]}</strong><small>“${t[5]}”</small></div><div class="label">WHAT'S ON THIS TABLE?</div><div class="chips">${t[11].slice(0,5).map(x=>`<span>${x}</span>`).join("")}</div><button class="storybtn" onclick="openStory()">VIEW FULL STORY →</button></div></aside>`}
-function closeCard(){card.innerHTML="";selected=-1;document.querySelectorAll(".pin").forEach(x=>x.classList.remove("active"))}
-function openStory(){let t=tables[selected];document.getElementById("modalbox").innerHTML=`<div class="modalhead"><b>THE GREAT INDIAN TABLE</b><button onclick="closeStory()">×</button></div><div class="story"><img src="${t[7]}" alt="${t[0]}'s workspace"><div class="storytext"><div class="eyebrow">${t[1].toUpperCase()}, ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><h3>${t[3]}</h3><p class="big">${t[6]}</p><div class="fav"><span class="label">THE OBJECT THAT MATTERS</span><strong>${t[4]}</strong><small>“${t[5]}”</small></div></div></div><section class="gallery"><h3>What's on this table?</h3><div class="grid">${t[11].map(x=>`<div><img src="${t[7]}" alt=""><p>${x}</p></div>`).join("")}</div></section>`;document.getElementById("modal").classList.add("show")}
-function closeStory(){document.getElementById("modal").classList.remove("show")}
+const byCity=c=>T.findIndex(x=>x[1].toLowerCase()===c.toLowerCase());
+const cards=document.getElementById("cards");
+T.forEach((t,i)=>{cards.insertAdjacentHTML("beforeend",`<div class="mini" onclick="openCity('${t[1]}')"><img src="${t[7]}"><span>${String(i+1).padStart(2,"0")} · ${t[1]}</span></div>`)});
+function openCity(city){const i=byCity(city);if(i<0)return;const t=T[i];document.getElementById("popup").innerHTML=`<button class="close" onclick="closePopup()">×</button><img class="popupImg" src="${t[7]}" alt="${t[0]}'s workspace"><div class="popupBody"><div class="location">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>THE OBJECT THAT MATTERS</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div><button class="view" onclick="openFull(${i})">VIEW FULL STORY →</button></div>`;document.getElementById("popup").classList.add("show")}
+function closePopup(){document.getElementById("popup").classList.remove("show")}
+function openFull(i){const t=T[i];document.getElementById("fullBox").innerHTML=`<div class="fullTop"><b>THE GREAT INDIAN TABLE</b><button onclick="closeFull()">×</button></div><div class="fullGrid"><img src="${t[7]}" alt="${t[0]}'s workspace"><div class="fullText"><div class="eyebrow">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>FAVOURITE ON THE TABLE</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div></div></div><section class="objects"><h3>What's on this table?</h3><div class="objectGrid">${t[9].map(o=>`<div class="object"><img src="${t[7]}" alt=""><div>${o}</div></div>`).join("")}</div></section>`;document.getElementById("full").classList.add("show")}
+function closeFull(){document.getElementById("full").classList.remove("show")}
 </script>
 </body>
 </html>
