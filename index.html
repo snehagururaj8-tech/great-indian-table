@@ -85,7 +85,7 @@ header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:
 .storySection .fullStoryBtn{border:0;background:var(--ink);color:#fff;padding:10px 13px;font-size:7px;letter-spacing:1.2px;border-radius:2px;margin-top:16px}
 @media(max-width:900px){
  .storySection{margin:10px 10px 24px;display:none;grid-template-columns:1fr;border-radius:10px}
- .storySection.show{display:block}
+ .storySection.show{display:block !important;visibility:visible;opacity:1}
  .storySide{padding:20px;border-right:0;border-bottom:1px solid var(--line)}
  .storySide h2{font-size:30px}
  .storySide .storyText{font-size:12px}
@@ -267,27 +267,37 @@ T.forEach((t,i)=>{cards.insertAdjacentHTML("beforeend",`<div class="mini" onclic
 
 function showStorySection(i, scrollToIt=true){
  const t=T[i];
- const section=document.getElementById("storySection");
- document.getElementById("storyLocation").textContent=t[1].toUpperCase()+" · "+t[2].toUpperCase();
- document.getElementById("storyName").textContent=t[0];
- document.getElementById("storyRole").textContent=t[3];
- document.getElementById("storyText").textContent=t[6];
- document.getElementById("storyFavourite").textContent=t[4];
- document.getElementById("storyFavouriteReason").textContent=t[5];
- const img=document.getElementById("storyImage");
- img.src=t[7]; img.alt=t[0]+"'s working table";
- const grid=document.getElementById("componentGrid");
- grid.innerHTML=t[9].map((o,n)=>`<div class="componentItem"><img src="${t[7]}" alt=""><div><strong>${o}</strong><small>${n===0?"A working object from this table.":"Part of the everyday workspace."}</small></div></div>`).join("");
- section.classList.add("show");
- document.getElementById("storyTopButton").onclick=()=>section.scrollIntoView({behavior:"smooth",block:"start"});
- if(scrollToIt) setTimeout(()=>section.scrollIntoView({behavior:"smooth",block:"start"}),80);
+ const section=document.getElementById('storySection');
+ if(!t || !section) return false;
+ const set=(id,val)=>{const el=document.getElementById(id); if(el) el.textContent=val;};
+ set('storyLocation',t[1].toUpperCase()+' · '+t[2].toUpperCase());
+ set('storyName',t[0]); set('storyRole',t[3]); set('storyText',t[6]);
+ set('storyFavourite',t[4]); set('storyFavouriteReason',t[5]);
+ const img=document.getElementById('storyImage');
+ if(img){img.src=t[7];img.alt=t[0]+"'s working table";}
+ const grid=document.getElementById('componentGrid');
+ if(grid) grid.innerHTML=t[9].map((o,n)=>`<div class="componentItem"><img src="${t[7]}" alt=""><div><strong>${o}</strong><small>${n===0?'A working object from this table.':'Part of the everyday workspace.'}</small></div></div>`).join('');
+ section.classList.add('show');
+ section.style.display='grid';
+ if(scrollToIt){
+   setTimeout(()=>{
+     section.scrollIntoView({behavior:'smooth',block:'start'});
+   },80);
+ }
+ return true;
+}
+function goToFullStory(i){
+ closePopup();
+ const ok=showStorySection(i,true);
+ if(!ok) return false;
+ return false;
 }
 
 function openCity(city){
  const i=byCity(city); if(i<0)return;
  const t=T[i];
  const pop=document.getElementById("popup");
- pop.innerHTML=`<button class="close" onclick="closePopup()">×</button><img class="popupImg" src="${t[7]}" alt="${t[0]}'s workspace"><div class="popupBody"><div class="location">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>THE OBJECT THAT MATTERS</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div><button type="button" class="view" onclick="showStorySection(${i},true);closePopup();return false;">VIEW FULL STORY →</button></div>`;
+ pop.innerHTML=`<button class="close" onclick="closePopup()">×</button><img class="popupImg" src="${t[7]}" alt="${t[0]}'s workspace"><div class="popupBody"><div class="location">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>THE OBJECT THAT MATTERS</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div><button type="button" class="view" onclick="return goToFullStory(${i});">VIEW FULL STORY →</button></div>`;
  pop.classList.add("show");
  pop.style.display="grid";
  setTimeout(()=>{
@@ -364,22 +374,6 @@ document.addEventListener("DOMContentLoaded", function(){
 </script>
 
 
-<script>
-document.addEventListener("DOMContentLoaded",function(){
-  document.addEventListener("click",function(e){
-    const fullClose=e.target.closest(".fullClose");
-    if(fullClose){e.preventDefault();e.stopPropagation();closeFull();return;}
-    const popupClose=e.target.closest("#popup .close");
-    if(popupClose){e.preventDefault();e.stopPropagation();closePopup();return;}
-  },true);
-  document.addEventListener("touchend",function(e){
-    const fullClose=e.target.closest(".fullClose");
-    if(fullClose){e.preventDefault();e.stopPropagation();closeFull();return;}
-    const popupClose=e.target.closest("#popup .close");
-    if(popupClose){e.preventDefault();e.stopPropagation();closePopup();return;}
-  },{passive:false,capture:true});
-});
-</script>
 
 
 <script>
