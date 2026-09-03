@@ -102,6 +102,44 @@ header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:
 .mapHit:hover,.mapHit:focus{fill:rgba(217,103,53,.10);stroke:rgba(217,103,53,.55);stroke-width:5}
 @media(max-width:900px){.mapHit{stroke-width:7}.mapHit:active{fill:rgba(217,103,53,.12)}}
 
+
+@media(max-width:900px){
+  .storySection.show{
+    display:flex !important;
+    flex-direction:column !important;
+    margin:10px 10px 30px !important;
+    width:auto !important;
+    min-height:0 !important;
+  }
+  .storySide{
+    order:2 !important;
+    padding:18px 16px !important;
+    border-right:0 !important;
+    border-bottom:1px solid var(--line) !important;
+  }
+  .storyHero{
+    order:1 !important;
+    width:100% !important;
+    height:250px !important;
+    min-height:250px !important;
+  }
+  .storyHero img{
+    width:100% !important;
+    height:250px !important;
+    min-height:250px !important;
+    object-fit:cover !important;
+  }
+  .components{
+    order:3 !important;
+    padding:18px 16px !important;
+  }
+  .storySide .back{margin-bottom:12px}
+  .storySide h2{font-size:30px !important}
+  .storySide .storyText{font-size:12px !important;line-height:1.5 !important}
+  .favouriteBox{margin-top:14px !important}
+  .componentGrid{grid-template-columns:1fr 1fr !important}
+}
+
 </style>
 </head>
 <body>
@@ -225,7 +263,7 @@ function openCity(city){
  pop.classList.add("show");
  pop.style.display="grid";
  setTimeout(()=>{
-   try{showStorySection(i,true);}catch(e){console.log("Story section:",e);}
+   try{showStorySection(i,false);}catch(e){console.log("Story section:",e);}
  },120);
 }
 function closePopup(){const p=document.getElementById("popup");if(p){p.classList.remove("show");p.style.display="none";}}
