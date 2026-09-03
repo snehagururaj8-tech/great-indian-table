@@ -140,6 +140,34 @@ header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:
   .componentGrid{grid-template-columns:1fr 1fr !important}
 }
 
+
+/* FINAL STORY LAYOUT */
+.storySection.show{
+  scroll-margin-top:14px;
+}
+.storySection .storyHero img{
+  object-position:center center;
+}
+@media(min-width:901px){
+  .storySection.show{
+    grid-template-columns:22% 46% 32%;
+  }
+}
+@media(max-width:900px){
+  .storySection.show{
+    display:flex !important;
+    flex-direction:column !important;
+    width:calc(100% - 20px) !important;
+    margin:14px 10px 30px !important;
+  }
+  .storyHero{order:1!important;height:270px!important;min-height:270px!important}
+  .storyHero img{height:270px!important;min-height:270px!important;width:100%!important;object-fit:cover!important}
+  .storySide{order:2!important;padding:18px!important}
+  .components{order:3!important;padding:18px!important}
+  .componentGrid{grid-template-columns:1fr 1fr!important}
+  .view{min-height:42px!important;padding:11px 13px!important}
+}
+
 </style>
 </head>
 <body>
@@ -259,7 +287,7 @@ function openCity(city){
  const i=byCity(city); if(i<0)return;
  const t=T[i];
  const pop=document.getElementById("popup");
- pop.innerHTML=`<button class="close" onclick="closePopup()">×</button><img class="popupImg" src="${t[7]}" alt="${t[0]}'s workspace"><div class="popupBody"><div class="location">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>THE OBJECT THAT MATTERS</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div><button type="button" class="view" data-full-index="${i}">VIEW FULL STORY →</button></div>`;
+ pop.innerHTML=`<button class="close" onclick="closePopup()">×</button><img class="popupImg" src="${t[7]}" alt="${t[0]}'s workspace"><div class="popupBody"><div class="location">${t[1].toUpperCase()} · ${t[2].toUpperCase()}</div><h2>${t[0]}</h2><div class="role">${t[3]}</div><p>${t[6]}</p><div class="fav"><label>THE OBJECT THAT MATTERS</label><strong>${t[4]}</strong><small>“${t[5]}”</small></div><button type="button" class="view" onclick="showStorySection(${i},true);closePopup();return false;">VIEW FULL STORY →</button></div>`;
  pop.classList.add("show");
  pop.style.display="grid";
  setTimeout(()=>{
